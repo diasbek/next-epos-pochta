@@ -29,15 +29,11 @@ function MetrikaRouteHits({ counterId }: { counterId: string }) {
 
 /**
  * Analytics after first paint — `lazyOnload` keeps Metrika/GA off the LCP path.
- * Webvisor stays off by default (heavy main-thread + recording); enable in Metrika UI
- * only when needed and set NEXT_PUBLIC_YM_WEBVISOR=1.
+ * Webvisor stays off (heavy main-thread); enable later in Metrika UI if needed.
  */
 export function SiteAnalytics() {
   const ga = SITE_CONFIG.analytics.googleAnalyticsId;
   const ym = SITE_CONFIG.analytics.yandexMetrikaId;
-  const webvisor =
-    process.env.NEXT_PUBLIC_YM_WEBVISOR === "1" ||
-    process.env.NEXT_PUBLIC_YM_WEBVISOR === "true";
 
   if (!ga && !ym) return null;
 
@@ -65,7 +61,7 @@ export function SiteAnalytics() {
 })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=${ym}', 'ym');
 ym(${ym}, 'init', {
   ssr: true,
-  webvisor: ${webvisor ? "true" : "false"},
+  webvisor: false,
   clickmap: true,
   ecommerce: "dataLayer",
   accurateTrackBounce: true,

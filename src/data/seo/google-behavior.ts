@@ -1,7 +1,8 @@
 /**
- * Money-page CX + Google Search / GA4 ops notes (not runtime).
- * GA4 events are fired from the app via `trackEvent` / `SEO_ANALYTICS_GOALS`.
- * GSC verification: set `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` after HTML-tag verify.
+ * Money-page CX + Google Search ops notes (not runtime).
+ * GSC is already connected — no new env vars required for Google SEO cadence.
+ * GA4 / GBP / GTM: deferred; Metrika remains primary analytics.
+ * Shared lead events still fire via `trackEvent` / `SEO_ANALYTICS_GOALS` when GA is present.
  */
 export const SEO_GOOGLE_BEHAVIOR = {
   moneyPages: [
@@ -36,25 +37,18 @@ export const SEO_GOOGLE_BEHAVIOR = {
     "https://epos-pochta.uz/ru/delivery/",
     "https://epos-pochta.uz/ru/business/",
   ],
-  ga4Setup: [
-    "Create GA4 property for epos-pochta.uz → set NEXT_PUBLIC_GA_ID (G-…)",
-    "Do not enable GTM unless replacing gtag — SiteAnalytics already loads gtag",
-    "Mark as conversions: price_estimate_shown, request_price_start, price_form_submit_success, business_connect_submit_success, track_support_call_click",
-    "Compare monthly with Metrika reachGoal of the same names (SEO_ANALYTICS_GOALS)",
-  ],
-  gscSetup: [
-    "Add property https://epos-pochta.uz (URL-prefix or Domain)",
-    "HTML tag verify → NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION on Hostinger + rebuild",
-    "Submit https://epos-pochta.uz/sitemap.xml",
+  gscMonitor: [
+    "GSC already verified for epos-pochta.uz — keep sitemap submitted",
     "Watch Page indexing for /delivery/*, /services/*, /calculator/, /ru/*",
-    "Confirm hreflang uz↔ru on money URLs (page → International targeting / HTML)",
-    "Filter Performance by query list in google-watch-phrases.txt",
+    "Confirm hreflang uz↔ru on money URLs when reviewing pages",
+    "Filter Performance with google-watch-phrases.txt",
+    "URL Inspection on afterPublishInspect after major publishes",
   ],
   napChecklist: [
-    "Google Business Profile phone/address/hours = CMS site settings / SITE_CONFIG",
-    "Yandex Business + 2GIS listings match the same NAP (no drift)",
-    "Contacts page map embed uses the same lat/lng as GBP pin",
-    "JSON-LD LocalBusiness hasMap points at Google Maps for the same pin",
+    "Yandex Business + 2GIS listings match CMS / SITE_CONFIG NAP",
+    "Contacts page map embed uses the same lat/lng",
+    "JSON-LD LocalBusiness hasMap = Google Maps pin (same coordinates)",
+    "Google Business Profile — deferred until ops decides to open it",
   ],
   cxNotes: [
     "Calculator always shows non-binding disclaimer before CTA to manager",
@@ -65,7 +59,6 @@ export const SEO_GOOGLE_BEHAVIOR = {
   monthlyCadence: [
     "GSC: Coverage / Page indexing + soft-404 / excluded thin routes",
     "GSC Performance: CTR on money URLs; retitle when CTR low at ≥100 impressions",
-    "GA4 conversions vs Metrika goals",
     "Refresh google-serp-baseline.tsv positions for SEO_SERP_MATRIX (Google.uz)",
     "Mobile PSI on / and /calculator/",
     "News: ≥1 uz and ≥1 ru URL per week",

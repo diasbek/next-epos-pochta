@@ -3,34 +3,20 @@
  * Track completion outside the repo (GSC, Webmaster, maps, PR).
  * Google money-page notes: `SEO_GOOGLE_BEHAVIOR` in google-behavior.ts.
  * Yandex money-page notes: `SEO_YANDEX_BEHAVIOR` in yandex-behavior.ts.
+ *
+ * GSC is already connected. GA4 / GBP / new env vars — deferred.
  */
 export const SEO_OPS_CHECKLIST = [
   {
     id: "gsc",
-    title: "Google Search Console",
+    title: "Google Search Console (already live)",
     items: [
-      "Add property https://epos-pochta.uz (URL-prefix or Domain)",
-      "Verify via HTML tag → NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION (Hostinger + rebuild)",
-      "Submit https://epos-pochta.uz/sitemap.xml",
+      "Keep https://epos-pochta.uz/sitemap.xml submitted",
       "Monitor Page indexing for /delivery/* , /services/* , /calculator/, /ru/*",
       "Check hreflang pairs uz↔ru on money URLs",
       "Filter Performance with google-watch-phrases.txt",
       "URL Inspection on SEO_GOOGLE_BEHAVIOR.afterPublishInspect after major publishes",
       "Monthly CTR review on head + city + service titles (≥100 impressions)",
-    ],
-  },
-  {
-    id: "ga4",
-    title: "Google Analytics 4",
-    items: [
-      "Create GA4 property → set NEXT_PUBLIC_GA_ID (G-…); do not enable GTM by default",
-      "Confirm gtag loads via SiteAnalytics (lazyOnload)",
-      "Mark conversions: price_estimate_shown",
-      "Mark conversions: request_price_start",
-      "Mark conversions: price_form_submit_success",
-      "Mark conversions: business_connect_submit_success",
-      "Mark conversions: track_support_call_click",
-      "Monthly: compare GA4 conversions vs Metrika reachGoal (same event names)",
     ],
   },
   {
@@ -48,7 +34,7 @@ export const SEO_OPS_CHECKLIST = [
   },
   {
     id: "analytics_goals",
-    title: "Metrika / GA4 goals (shared event names)",
+    title: "Metrika goals (primary; GA4 deferred)",
     items: [
       "price_estimate_shown",
       "request_price_start",
@@ -59,13 +45,12 @@ export const SEO_OPS_CHECKLIST = [
   },
   {
     id: "local_citations",
-    title: "Local NAP (Google + Yandex + 2GIS)",
+    title: "Local NAP",
     items: [
-      "Google Business Profile phone/address/hours = SITE_CONFIG / CMS NAP",
-      "Yandex Business / maps card = same NAP",
+      "Yandex Business / maps card = SITE_CONFIG / CMS NAP",
       "2GIS listing matches phone, address, hours",
-      "Contacts map pin = GBP + Yandex pin (lat/lng)",
-      "JSON-LD hasMap = Google Maps URL for the same coordinates",
+      "Contacts map pin matches the same lat/lng",
+      "Google Business Profile — deferred",
     ],
   },
   {
@@ -75,7 +60,6 @@ export const SEO_OPS_CHECKLIST = [
       "Fill google-serp-baseline.tsv positions for Google.uz (uz + ru)",
       "Snapshot Yandex positions for the same matrix queries",
       "Compare against emu / bts / yandex delivery / pony / aramex",
-      "Optional: set googleVolumeHint after Keyword Planner pass (see google-keyword-layer.md)",
       "Refresh monthly; escalate thin routes if GSC excluded / Yandex LOW_QUALITY rises",
     ],
   },
@@ -87,7 +71,6 @@ export const SEO_OPS_CHECKLIST = [
       "Refresh city FAQ when coverage changes",
       "Monthly title CTR review uz vs ru on head hubs (GSC)",
       "Monthly Mobile PSI on / and /calculator/",
-      "Monthly GA4 vs Metrika conversion parity check",
       "After large deploys: GSC URL Inspection on money URLs (google-behavior.ts)",
     ],
   },
