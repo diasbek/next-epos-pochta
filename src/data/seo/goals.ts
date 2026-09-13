@@ -292,7 +292,10 @@ export const SEO_PRIORITY_QUERIES = {
 export type SeoEngine = "google" | "yandex";
 export type SeoLocale = "uz" | "ru";
 
-/** SERP tracking matrix: query → landing → engines (Wordstat-aligned, 2026-09-10). */
+/** SERP tracking matrix: query → landing → engines (Wordstat-aligned, 2026-09-10).
+ * `googleVolumeHint` — optional Keyword Planner / GSC volume after Google keyword layer pass
+ * (see google-keyword-layer.md). Do not change targetPath without GSC evidence.
+ */
 export const SEO_SERP_MATRIX: ReadonlyArray<{
   cluster: keyof typeof SEO_PRIORITY_QUERIES | "head";
   locale: SeoLocale;
@@ -301,6 +304,8 @@ export const SEO_SERP_MATRIX: ReadonlyArray<{
   engines: SeoEngine[];
   competitors: ReadonlyArray<string>;
   wordstatFreq?: number;
+  /** Approx monthly Google.uz searches; fill after Keyword Planner — not Wordstat. */
+  googleVolumeHint?: number;
 }> = [
   {
     cluster: "brand",

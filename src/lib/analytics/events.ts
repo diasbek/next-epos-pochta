@@ -1,3 +1,7 @@
+/**
+ * Dual analytics: GA4 (`gtag`) + Yandex Metrika (`ym` reachGoal) + dataLayer.
+ * Event names must match `SEO_ANALYTICS_GOALS` — mark the same names as GA4 conversions.
+ */
 export function trackEvent(
   name: string,
   params?: Record<string, string | number | boolean>,

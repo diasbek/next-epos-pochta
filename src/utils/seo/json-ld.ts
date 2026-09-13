@@ -45,7 +45,10 @@ function geoCoordinates() {
 /** Local courier company entity for Google / Yandex. */
 export function getCourierServiceSchema() {
   const siteUrl = siteOrigin();
-  const mapUrl = `https://yandex.com/maps/?pt=${SITE_CONFIG.address.lng},${SITE_CONFIG.address.lat}&z=16&l=map`;
+  const { lat, lng } = SITE_CONFIG.address;
+  // Google Maps for hasMap (LocalBusiness / GBP parity); Yandex Maps kept in sameAs.
+  const googleMapsUrl = `https://www.google.com/maps?q=${lat},${lng}`;
+  const yandexMapsUrl = `https://yandex.com/maps/?pt=${lng},${lat}&z=16&l=map`;
 
   return {
     "@context": "https://schema.org",
@@ -65,10 +68,11 @@ export function getCourierServiceSchema() {
       SITE_CONFIG.telegramUrl,
       SITE_CONFIG.instagramUrl,
       SITE_CONFIG.facebookUrl,
+      yandexMapsUrl,
     ].filter(Boolean),
     address: postalAddress(),
     geo: geoCoordinates(),
-    hasMap: mapUrl,
+    hasMap: googleMapsUrl,
     taxID: SITE_CONFIG.address.inn,
     areaServed: [
       {

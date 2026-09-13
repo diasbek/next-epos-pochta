@@ -1,6 +1,7 @@
 /**
  * Money-page CX + Yandex behavior notes (ops, not runtime).
  * Metrika goals are fired from the app via `trackEvent` / `SEO_ANALYTICS_GOALS`.
+ * Google parallel: `SEO_GOOGLE_BEHAVIOR` in google-behavior.ts.
  */
 export const SEO_YANDEX_BEHAVIOR = {
   moneyPages: [

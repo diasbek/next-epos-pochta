@@ -97,9 +97,9 @@ export const DELIVERY_CITIES: DeliveryCity[] = [
     metaTitleRu: "Курьер Ташкент — доставка посылок и документов",
     metaTitleUz: "Toshkent pochta — kuryer va yetkazib berish",
     metaDescriptionRu:
-      "Курьер в Ташкенте и доставка из столицы по Узбекистану. Калькулятор ориентира, забор курьером, статусы. Без публичных тарифов.",
+      "Курьер в Ташкенте и доставка из столицы по Узбекистану. Рассчитайте стоимость в калькуляторе, забор курьером, статусы. Без публичных тарифов — EPOS POCHTA.",
     metaDescriptionUz:
-      "Toshkentda kuryer va poytaxtdan Oʻzbekiston boʻylab yetkazib berish. Kalkulyator, kuryer chaqirish, statuslar. Ochiq tarifsiz.",
+      "Toshkentda kuryer va poytaxtdan Oʻzbekiston boʻylab yetkazib berish. Kalkulyator, kuryer chaqirish, statuslar. Ochiq tarifsiz — EPOS POCHTA.",
   },
   {
     slug: "samarkand",
@@ -171,9 +171,9 @@ export const DELIVERY_CITIES: DeliveryCity[] = [
     metaTitleRu: "Доставка в Самарканд — посылки и курьер",
     metaTitleUz: "Samarqandga yetkazib berish — pochta va kuryer",
     metaDescriptionRu:
-      "Доставка в Самарканд: посылки, документы, курьер из Ташкента. Калькулятор ориентира и маршрут tas/skd. Без публичных тарифов.",
+      "Доставка в Самарканд: посылки, документы, курьер из Ташкента. Калькулятор и маршрут tas/skd. Итог — менеджер EPOS POCHTA.",
     metaDescriptionUz:
-      "Samarqandga yetkazib berish: pochta, hujjatlar, Toshkentdan kuryer. Kalkulyator va tas/skd yoʻnalishi. Ochiq tarifsiz.",
+      "Samarqandga yetkazib berish: pochta, hujjatlar, Toshkentdan kuryer. Kalkulyator va tas/skd. Yakun — EPOS POCHTA menejeri.",
   },
   {
     slug: "bukhara",
@@ -245,9 +245,9 @@ export const DELIVERY_CITIES: DeliveryCity[] = [
     metaTitleRu: "Доставка в Бухару — посылки и курьер",
     metaTitleUz: "Buxoroga yetkazib berish — pochta va kuryer",
     metaDescriptionRu:
-      "Доставка в Бухару: посылки, документы, курьер из Ташкента. Калькулятор и маршрут tas/bhk. Без публичных тарифов.",
+      "Доставка в Бухару: посылки, документы, курьер из Ташкента. Калькулятор и маршрут tas/bhk. Итог — менеджер EPOS POCHTA.",
     metaDescriptionUz:
-      "Buxoroga yetkazib berish: pochta, hujjatlar, Toshkentdan kuryer. Kalkulyator va tas/bhk. Ochiq tarifsiz.",
+      "Buxoroga yetkazib berish: pochta, hujjatlar, Toshkentdan kuryer. Kalkulyator va tas/bhk. Yakun — EPOS POCHTA menejeri.",
   },
   {
     slug: "namangan",
@@ -319,9 +319,9 @@ export const DELIVERY_CITIES: DeliveryCity[] = [
     metaTitleRu: "Доставка в Наманган — посылки и курьер",
     metaTitleUz: "Namanganga yetkazib berish — pochta va kuryer",
     metaDescriptionRu:
-      "Доставка в Наманган: посылки, документы, курьер из Ташкента. Калькулятор и маршрут tas/nma.",
+      "Доставка в Наманган: посылки, документы, курьер из Ташкента. Калькулятор и маршрут tas/nma — EPOS POCHTA.",
     metaDescriptionUz:
-      "Namanganga yetkazib berish: pochta, hujjatlar, Toshkentdan kuryer. Kalkulyator va tas/nma.",
+      "Namanganga yetkazib berish: pochta, hujjatlar, Toshkentdan kuryer. Kalkulyator va tas/nma — EPOS POCHTA.",
   },
   {
     slug: "andijan",
@@ -393,9 +393,9 @@ export const DELIVERY_CITIES: DeliveryCity[] = [
     metaTitleRu: "Доставка в Андижан — посылки и курьер",
     metaTitleUz: "Andijonga yetkazib berish — pochta va kuryer",
     metaDescriptionRu:
-      "Доставка в Андижан: посылки, документы, курьер из Ташкента. Калькулятор и маршрут tas/azn.",
+      "Доставка в Андижан: посылки, документы, курьер из Ташкента. Калькулятор и маршрут tas/azn — EPOS POCHTA.",
     metaDescriptionUz:
-      "Andijonga yetkazib berish: pochta, hujjatlar, Toshkentdan kuryer. Kalkulyator va tas/azn.",
+      "Andijonga yetkazib berish: pochta, hujjatlar, Toshkentdan kuryer. Kalkulyator va tas/azn — EPOS POCHTA.",
   },
   {
     slug: "fergana",
@@ -467,9 +467,9 @@ export const DELIVERY_CITIES: DeliveryCity[] = [
     metaTitleRu: "Доставка в Фергану — посылки и курьер",
     metaTitleUz: "Fargʻonaga yetkazib berish — pochta va kuryer",
     metaDescriptionRu:
-      "Доставка в Фергану: посылки, документы, курьер из Ташкента. Калькулятор и маршрут tas/feg.",
+      "Доставка в Фергану: посылки, документы, курьер из Ташкента. Калькулятор и маршрут tas/feg — EPOS POCHTA.",
     metaDescriptionUz:
-      "Fargʻonaga yetkazib berish: pochta, hujjatlar, Toshkentdan kuryer. Kalkulyator va tas/feg.",
+      "Fargʻonaga yetkazib berish: pochta, hujjatlar, Toshkentdan kuryer. Kalkulyator va tas/feg — EPOS POCHTA.",
   },
   {
     slug: "nukus",

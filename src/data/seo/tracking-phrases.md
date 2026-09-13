@@ -8,6 +8,7 @@
 - `tracking-phrases.txt` — plain list
 - `tracking-phrases.tsv` — phrase / locale / cluster / path / freq
 - Канон кластеров: `WORDSTAT_CLUSTERS` / `SEO_SERP_MATRIX` в `goals.ts`
+- Google parallel: `google-watch-phrases.txt` + `SEO_GOOGLE_BEHAVIOR`
 
 ## brand
 

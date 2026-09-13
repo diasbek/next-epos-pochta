@@ -19,11 +19,11 @@ const SERVICE_SEO: Record<
 > = {
   documents: {
     titleUz: "Hujjatlarni kuryer orqali yetkazish",
-    titleRu: "Доставка документов курьером",
+    titleRu: "Доставка документов курьером по Узбекистану",
     descUz:
       "Hujjat yetkazish Oʻzbekiston boʻylab: shartnomalar va muhim qogʻozlar. Kalkulyator orientiri, yakuniy narx — menejer.",
     descRu:
-      "Доставка документов курьером по Узбекистану: договоры и деловая корреспонденция. Ориентир в калькуляторе, итог — менеджер.",
+      "Доставка документов курьером по Узбекистану: договоры и деловая корреспонденция. Ориентир в калькуляторе, итог — менеджер EPOS POCHTA.",
   },
   parcels: {
     titleUz: "Pochta va joʻnatmalar yetkazib berish",
@@ -34,28 +34,28 @@ const SERVICE_SEO: Record<
       "Междугородняя доставка посылок по Узбекистану. Ориентир по весу и маршруту — в калькуляторе.",
   },
   door: {
-    titleUz: "Eshikdan eshikka yetkazib berish — eshikgacha",
-    titleRu: "Доставка до двери — курьер на дом",
+    titleUz: "Eshikgacha yetkazib berish — eshikdan eshikka",
+    titleRu: "Доставка до двери — курьер на дом по Узбекистану",
     descUz:
       "Eshikgacha yetkazish: punktga bormasdan. Toshkent va boshqa shaharlar — kalkulyator + menejer tasdigʻi.",
     descRu:
-      "Доставка до двери без визита в пункт. Ташкент и регионы Узбекистана — ориентир в калькуляторе, итог подтверждает менеджер.",
+      "Доставка до двери без визита в пункт. Ташкент и регионы — ориентир в калькуляторе, итог подтверждает менеджер EPOS POCHTA.",
   },
   courier: {
     titleUz: "Kuryer chaqirish Toshkent va viloyatlarda",
-    titleRu: "Вызов курьера в Ташкенте и регионах",
+    titleRu: "Вызвать курьера в Ташкенте — забор отправления",
     descUz:
       "Kuryer chaqirish: manzildan olib ketish. Kalkulyatorda pickup bilan orientir, muddatni menejer tasdiqlaydi.",
     descRu:
-      "Вызов курьера: забор отправления с адреса. Ориентир с опцией забора в калькуляторе — слот подтверждает менеджер.",
+      "Вызов курьера в Ташкенте и регионах: забор с адреса. Ориентир с опцией забора в калькуляторе — слот подтверждает менеджер.",
   },
   ecommerce: {
     titleUz: "Internet-doʻkonlar uchun yetkazib berish",
-    titleRu: "Доставка для интернет-магазинов",
+    titleRu: "Доставка для интернет-магазинов — e-com логистика",
     descUz:
       "Internet-doʻkon yetkazib berish: ommaviy joʻnatmalar, statuslar, COD imkoniyati. Individual shartlar — ochiq tarifsiz.",
     descRu:
-      "Доставка для интернет-магазинов: массовые отправления, статусы, COD. Индивидуальные условия — без публичного прайса.",
+      "Доставка для интернет-магазинов: массовые отправления, статусы, COD. Индивидуальные условия без публичного прайса — EPOS POCHTA.",
   },
   corporate: {
     titleUz: "Korporativ yetkazib berish",
@@ -67,11 +67,11 @@ const SERVICE_SEO: Record<
   },
   cod: {
     titleUz: "Yetkazib berishda toʻlov (COD / naqd)",
-    titleRu: "Наложенный платёж при доставке (COD)",
+    titleRu: "Наложенный платёж при доставке — COD",
     descUz:
       "Yetkazib berishda toʻlov: qabul qiluvchidan toʻlov yigʻish. Shartlar biznes arizasida kelishiladi.",
     descRu:
-      "Наложенный платёж при доставке: приём оплаты у получателя. Условия согласуются в бизнес-заявке.",
+      "Наложенный платёж при доставке (COD): приём оплаты у получателя. Условия согласуются в бизнес-заявке EPOS POCHTA.",
   },
   returns: {
     titleUz: "Qaytarish joʻnatmalari",

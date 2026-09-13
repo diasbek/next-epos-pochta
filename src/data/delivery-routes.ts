@@ -213,7 +213,7 @@ export function routeMetaTitle(locale: Locale, route: DeliveryRoute): string {
   }
   const fromGen = RU_FROM_GENITIVE[route.from.code] ?? route.from.nameRu;
   if (isPriorityTasCorridor(route)) {
-    return `Доставка посылок из ${fromGen} в ${to} — курьер`;
+    return `Доставка из ${fromGen} в ${to} — посылки и курьер`;
   }
   return `Доставка из ${fromGen} в ${to}`;
 }

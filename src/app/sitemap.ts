@@ -67,6 +67,7 @@ function pushLocalized(
   }
 }
 
+/** Thin non-priority A→B corridors stay in sitemap but demoted for Google/Yandex quality. */
 function routeSitemapPriority(from: string, to: string): number {
   const a = from.toLowerCase();
   const b = to.toLowerCase();
@@ -75,7 +76,7 @@ function routeSitemapPriority(from: string, to: string): number {
   if (touchesTas && bothPriority) return 0.82;
   if (bothPriority) return 0.72;
   if (touchesTas) return 0.65;
-  return 0.5;
+  return 0.35;
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

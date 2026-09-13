@@ -2,7 +2,7 @@ import type { SiteCopy } from "@/data/types";
 
 export const uzCopy: SiteCopy = {
   meta: {
-    homeTitle: "Yetkazib berish Oʻzbekiston boʻylab — pochta va kuryer",
+    homeTitle: "Yetkazib berish Oʻzbekiston boʻylab",
     homeDescription:
       "Yetkazib berish Oʻzbekiston boʻylab: pochta, hujjatlar, eshikgacha. Yetkazib berish narxini kalkulyatorda hisoblang — yakuniy narxni menejer tasdiqlaydi.",
     servicesTitle: "Kuryerlik yetkazib berish xizmatlari — hujjat, pochta, e-com",
@@ -10,7 +10,7 @@ export const uzCopy: SiteCopy = {
       "Hujjatlar, pochta, eshikgacha yetkazish, kuryer chaqirish, internet-doʻkon va korporativ logistika — soʻrov boʻyicha hisob.",
     businessTitle: "Biznes uchun yetkazib berish — korporativ logistika",
     businessDescription:
-      "Biznes va kompaniyalar uchun yetkazib berish: muntazam olib ketish, statuslar, COD, API. Individual hisob, ochiq praysiz.",
+      "Biznes va kompaniyalar uchun yetkazib berish: muntazam olib ketish, statuslar, COD, API. Individual hisob, ochiq praysiz — EPOS POCHTA.",
     trackingTitle: "Joʻnatmani kuzatish",
     trackingDescription: "EPOS POCHTA trek-raqami boʻyicha statusni tekshiring.",
     requestPriceTitle: "Biznes uchun tijorat taklifi",
@@ -18,7 +18,7 @@ export const uzCopy: SiteCopy = {
       "Internet-doʻkonlar va kompaniyalar uchun individual hisob arizasi: hajm, API, olib ketish va aloqa. Shartlarni menejer tasdiqlaydi.",
     calculatorTitle: "Yetkazib berish narxi — kalkulyator",
     calculatorDescription:
-      "Yetkazib berish narxi: shaharlar, ogʻirlik va oʻlchamlar. Kalkulyator orientir beradi, oferta emas — yakuniy narxni menejer tasdiqlaydi.",
+      "Yetkazib berish narxi va muddati: shaharlar, ogʻirlik va oʻlchamlar. Kalkulyator orientir beradi, oferta emas — yakuniy narxni menejer tasdiqlaydi.",
     faqTitle: "EPOS POCHTA yetkazib berish boʻyicha savol-javoblar",
     faqDescription:
       "Narxni qanday hisoblash, muddat, kuryer chaqirish va trek — EPOS POCHTA javoblari.",
@@ -33,7 +33,7 @@ export const uzCopy: SiteCopy = {
       "EPOS POCHTA yangiliklari: xizmat ishga tushishi, geografiya va biznes yechimlari.",
     contactsTitle: "EPOS POCHTA aloqasi — Toshkent ofisi",
     contactsDescription:
-      "Telefon, ofis manzili, ish vaqti va Toshkentdagi xarita. Yandex / 2GIS NAP.",
+      "Telefon, ofis manzili, ish vaqti va Toshkentdagi xarita. Google, Yandex va 2GIS uchun yagona NAP.",
     privacyTitle: "Maxfiylik siyosati",
     privacyDescription:
       "EPOS POCHTA shaxsga doir maʼlumotlarni qanday yigʻadi, saqlaydi va himoya qiladi.",
