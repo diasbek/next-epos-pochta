@@ -19,7 +19,7 @@ import {
   passwordMin,
 } from "@/lib/dashboard/schemas";
 import { toast } from "react-toastify";
-import { dashBtnPrimary, dashBtnSecondary, dashSelect } from "@/styles/dashboard";
+import { dashBtnPrimary, dashBtnSecondary, dashSelectSm } from "@/styles/dashboard";
 
 type InviteValues = {
   display_name: string;
@@ -163,7 +163,7 @@ export function UsersInviteClient({
                 <select
                   name="role"
                   defaultValue={row.role}
-                  className={`${dashSelect} py-1.5 text-xs`}
+                  className={`${dashSelectSm}`}
                 >
                   <option value="crm">{t.badge.role.crm}</option>
                   <option value="editor">{t.badge.role.editor}</option>

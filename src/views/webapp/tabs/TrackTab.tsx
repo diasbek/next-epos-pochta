@@ -5,6 +5,7 @@ import { getWebAppCopy } from "@/data/webapp-copy";
 import { useTelegram } from "@/components/webapp/TelegramProvider";
 import { useWebAppNav } from "@/components/webapp/WebAppNav";
 import { Button } from "@/components/atoms/Button";
+import { Chip } from "@/components/atoms/Chip";
 import { cn } from "@/lib/cn";
 import { getCanonicalSiteUrl } from "@/utils/seo/indexing";
 
@@ -96,19 +97,14 @@ export function TrackTab() {
             ["done", copy.trackDone],
           ] as const
         ).map(([id, label]) => (
-          <button
+          <Chip
             key={id}
             type="button"
+            active={filter === id}
             onClick={() => setFilter(id)}
-            className={cn(
-              "rounded-full border px-3 py-1.5 text-xs font-semibold",
-              filter === id
-                ? "border-primary/30 bg-primary-soft text-primary"
-                : "border-black/10 bg-white text-black/50",
-            )}
           >
             {label}
-          </button>
+          </Chip>
         ))}
       </div>
 

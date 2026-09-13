@@ -3,9 +3,9 @@
 import Image from "next/image";
 import { useMemo, useState } from "react";
 import type { SiteCopy } from "@/data/types";
+import { Input } from "@/components/atoms/Input";
 import { cn } from "@/lib/cn";
 import {
-  fieldControl,
   quizChip,
   quizChipActive,
   quizChipIdle,
@@ -44,14 +44,15 @@ export function FaqExplorer({ faq }: { faq: FaqCopy }) {
           <label className="sr-only" htmlFor="faq-search">
             {faq.searchPlaceholder}
           </label>
-          <input
+          <Input
             id="faq-search"
             name="faq_search"
             type="search"
+            size="sm"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder={faq.searchPlaceholder}
-            className={`${fieldControl} w-full !py-3`}
+            className="w-full"
             autoComplete="off"
           />
         </div>
@@ -89,7 +90,7 @@ export function FaqExplorer({ faq }: { faq: FaqCopy }) {
           </div>
         </div>
 
-        <p className="m-0 text-sm text-black/45">{resultsLabel}</p>
+        <p className="m-0 text-sm text-black/55">{resultsLabel}</p>
       </aside>
 
       <div className="flex flex-col gap-6">

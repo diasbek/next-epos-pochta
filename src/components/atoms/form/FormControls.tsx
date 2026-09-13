@@ -2,7 +2,13 @@
 
 import type { ChangeEvent, ReactNode } from "react";
 import { Field } from "formik";
-import { checkRow, fieldControl, fieldTextarea } from "@/styles/ui";
+import {
+  checkRow,
+  controlCheckbox,
+  controlFieldMd,
+  controlSelectMd,
+  controlTextarea,
+} from "@/styles/ui";
 
 type CommonProps = {
   name: string;
@@ -24,7 +30,7 @@ export function FormInput({ id, name, className, ...props }: CommonProps) {
     <Field
       id={id ?? name}
       name={name}
-      className={className ?? fieldControl}
+      className={className ?? controlFieldMd}
       {...props}
     />
   );
@@ -36,7 +42,7 @@ export function FormTextarea({ id, name, className, ...props }: CommonProps) {
       as="textarea"
       id={id ?? name}
       name={name}
-      className={className ?? fieldTextarea}
+      className={className ?? controlTextarea}
       {...props}
     />
   );
@@ -54,7 +60,7 @@ export function FormSelect({
       as="select"
       id={id ?? name}
       name={name}
-      className={className ?? fieldControl}
+      className={className ?? controlSelectMd}
       {...props}
     >
       {children}
@@ -71,11 +77,7 @@ export function FormCheckbox({
 }) {
   return (
     <label className={checkRow}>
-      <Field
-        type="checkbox"
-        name={name}
-        className="mt-0.5 h-[1.15rem] w-[1.15rem] shrink-0 accent-[var(--color-primary)]"
-      />
+      <Field type="checkbox" name={name} className={controlCheckbox} />
       <span>{label}</span>
     </label>
   );

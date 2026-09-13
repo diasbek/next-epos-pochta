@@ -13,7 +13,8 @@ import {
 } from "@/lib/webapp/session";
 import { useTelegram } from "@/components/webapp/TelegramProvider";
 import { Button } from "@/components/atoms/Button";
-import { fieldControl, fieldLabel } from "@/styles/ui";
+import { Input } from "@/components/atoms/Input";
+import { fieldLabel } from "@/styles/ui";
 
 type ContactGateProps = {
   onLinked: (session: WebAppContactSession) => void;
@@ -154,22 +155,20 @@ export function ContactGate({ onLinked }: ContactGateProps) {
         <form className="flex flex-col gap-3" onSubmit={onManualSubmit}>
           <label className="grid gap-1.5">
             <span className={fieldLabel}>{copy.nameLabel}</span>
-            <input
+            <Input
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder={copy.namePlaceholder}
-              className={fieldControl}
               autoComplete="name"
               required
             />
           </label>
           <label className="grid gap-1.5">
             <span className={fieldLabel}>{copy.phoneLabel}</span>
-            <input
+            <Input
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               placeholder={copy.phonePlaceholder}
-              className={fieldControl}
               inputMode="tel"
               autoComplete="tel"
               required

@@ -1,3 +1,4 @@
+import { Chip } from "@/components/atoms/Chip";
 import Link from "next/link";
 import type { Locale } from "@/i18n/config";
 import { getContent } from "@/i18n/get-content";
@@ -133,12 +134,12 @@ export async function DeliveryRoutePageView({
           <nav className="mb-4 text-sm text-ink-muted" aria-label="Breadcrumb">
             <ol className="m-0 flex list-none flex-wrap items-center gap-1.5 p-0">
               <li>
-                <Link
+                <Chip
                   href={homePath}
                   className="underline-offset-2 hover:text-primary hover:underline"
                 >
                   {copy.calculator.breadcrumbHome}
-                </Link>
+                </Chip>
               </li>
               <li aria-hidden className="text-black/30">
                 /
@@ -179,7 +180,7 @@ export async function DeliveryRoutePageView({
         <PageContainer className="max-w-3xl">
           <dl className="m-0 grid gap-4 sm:grid-cols-3">
             <div className="rounded-2xl border border-black/10 bg-white p-4">
-              <dt className="m-0 text-xs font-semibold uppercase tracking-wide text-black/40">
+              <dt className="m-0 text-xs font-semibold uppercase tracking-wide text-black/55">
                 {locale === "uz" ? "Masofa" : "Расстояние"}
               </dt>
               <dd className="m-0 mt-1 font-display text-xl font-semibold text-black">
@@ -187,7 +188,7 @@ export async function DeliveryRoutePageView({
               </dd>
             </div>
             <div className="rounded-2xl border border-black/10 bg-white p-4">
-              <dt className="m-0 text-xs font-semibold uppercase tracking-wide text-black/40">
+              <dt className="m-0 text-xs font-semibold uppercase tracking-wide text-black/55">
                 {locale === "uz" ? "Muddat" : "Срок"}
               </dt>
               <dd className="m-0 mt-1 text-sm font-medium leading-snug text-black">
@@ -195,7 +196,7 @@ export async function DeliveryRoutePageView({
               </dd>
             </div>
             <div className="rounded-2xl border border-black/10 bg-white p-4">
-              <dt className="m-0 text-xs font-semibold uppercase tracking-wide text-black/40">
+              <dt className="m-0 text-xs font-semibold uppercase tracking-wide text-black/55">
                 {locale === "uz" ? "Nima yuboriladi" : "Что отправляем"}
               </dt>
               <dd className="m-0 mt-1 text-sm font-medium leading-snug text-black">
@@ -208,7 +209,7 @@ export async function DeliveryRoutePageView({
 
           {routeEstimate?.ok ? (
             <div className="mt-6 rounded-2xl border border-black/10 bg-white p-4 sm:p-5">
-              <p className="m-0 text-xs font-semibold uppercase tracking-wide text-black/40">
+              <p className="m-0 text-xs font-semibold uppercase tracking-wide text-black/55">
                 {locale === "uz" ? "Taxminiy smeta (1 kg)" : "Ориентировочная смета (1 кг)"}
               </p>
               <p className="m-0 mt-1 font-display text-2xl font-semibold text-black">
@@ -220,7 +221,7 @@ export async function DeliveryRoutePageView({
                   ? `Muddat orientiri: ~${routeEstimate.estimate.etaDays} kun`
                   : `Ориентир по сроку: ~${routeEstimate.estimate.etaDays} дн.`}
               </p>
-              <p className="m-0 mt-3 text-xs leading-relaxed text-black/45">
+              <p className="m-0 mt-3 text-xs leading-relaxed text-black/55">
                 {copy.calculator.disclaimer}
               </p>
             </div>
@@ -321,23 +322,21 @@ export async function DeliveryRoutePageView({
                     href={localePath(
                       locale,
                       routePath(r.from.code, r.to.code),
-                    )}
-                    className="inline-block rounded-full border border-black/15 bg-white px-4 py-2 text-sm font-medium text-black hover:border-primary hover:text-primary"
-                  >
+                    )}>
                     {routeChipLabel(locale, r)}
                   </Link>
                 </li>
               ))}
             </ul>
             <p className="m-0 mt-3 text-sm text-black/50">
-              <Link
+              <Chip
                 href={fromHubPath}
                 className="font-medium text-primary underline-offset-2 hover:underline"
               >
                 {locale === "uz"
                   ? `${fromName} yoʻnalishlari`
                   : `Направления из ${fromName}`}
-              </Link>
+              </Chip>
             </p>
           </div>
 
@@ -354,9 +353,7 @@ export async function DeliveryRoutePageView({
                     href={localePath(
                       locale,
                       routePath(r.from.code, r.to.code),
-                    )}
-                    className="inline-block rounded-full border border-black/15 bg-white px-4 py-2 text-sm font-medium text-black hover:border-primary hover:text-primary"
-                  >
+                    )}>
                     {routeChipLabel(locale, r)}
                   </Link>
                 </li>

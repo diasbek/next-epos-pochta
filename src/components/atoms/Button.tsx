@@ -2,6 +2,13 @@ import Link from "next/link";
 import { cn } from "@/lib/cn";
 import {
   btnBase,
+  btnIconOnly,
+  btnIconOnlyLg,
+  btnIconOnlyMd,
+  btnIconOnlySm,
+  btnIconOnlyXs,
+  btnShapePill,
+  btnShapeRounded,
   btnSizeLg,
   btnSizeMd,
   btnSizeSm,
@@ -21,14 +28,12 @@ import {
 } from "@/styles/ui";
 
 /**
- * Button tones (CSS vars in `tokens.css`):
- * - main / primary — solid brand CTA
- * - secondary — brand outline
- * - accent — soft brand fill
- * - ghost — transparent
- * - outline — neutral border
- * - muted — quiet surface fill
- * - danger / success / telegram — semantic
+ * Button API (tokens in `tokens.css`):
+ * - variant: main|primary|secondary|accent|ghost|outline|muted|danger|success|telegram
+ * - size: xs|sm|md|lg (heights = --btn-height-*)
+ * - shape: pill (default CTA) | rounded (next to Input)
+ * - width: auto|full|mobile
+ * - iconOnly: square hit-target matching size height
  */
 export type ButtonVariant =
   | "main"
@@ -42,10 +47,9 @@ export type ButtonVariant =
   | "success"
   | "telegram";
 
-/** `xs` = header chrome; `sm` compact; `md` default; `lg` hero. */
 export type ButtonSize = "xs" | "sm" | "md" | "lg";
-/** `mobile` = full width below sm, auto from sm+. */
 export type ButtonWidth = "auto" | "full" | "mobile";
+export type ButtonShape = "pill" | "rounded";
 
 interface ButtonProps {
   href?: string;
@@ -53,12 +57,15 @@ interface ButtonProps {
   variant?: ButtonVariant;
   size?: ButtonSize;
   width?: ButtonWidth;
+  shape?: ButtonShape;
+  iconOnly?: boolean;
   className?: string;
   type?: "button" | "submit" | "reset";
   onClick?: () => void;
   disabled?: boolean;
   target?: string;
   rel?: string;
+  "aria-label"?: string;
 }
 
 const toneClass: Record<ButtonVariant, string> = {
@@ -87,6 +94,18 @@ const widthClass: Record<ButtonWidth, string> = {
   mobile: btnWidthMobile,
 };
 
+const shapeClass: Record<ButtonShape, string> = {
+  pill: btnShapePill,
+  rounded: btnShapeRounded,
+};
+
+const iconOnlySizeClass: Record<ButtonSize, string> = {
+  xs: btnIconOnlyXs,
+  sm: btnIconOnlySm,
+  md: btnIconOnlyMd,
+  lg: btnIconOnlyLg,
+};
+
 function isExternalHref(href: string) {
   return (
     href.startsWith("http://") ||
@@ -102,18 +121,24 @@ export function Button({
   variant = "main",
   size = "md",
   width = "auto",
+  shape = "pill",
+  iconOnly = false,
   className = "",
   type = "button",
   onClick,
   disabled,
   target,
   rel,
+  "aria-label": ariaLabel,
 }: ButtonProps) {
   const cls = cn(
     btnBase,
     sizeClass[size],
     toneClass[variant],
     widthClass[width],
+    shapeClass[shape],
+    iconOnly && btnIconOnly,
+    iconOnly && iconOnlySizeClass[size],
     className,
   );
 
@@ -126,20 +151,34 @@ export function Button({
           onClick={onClick}
           target={target}
           rel={rel}
+          aria-label={ariaLabel}
         >
           {children}
         </a>
       );
     }
     return (
-      <Link href={href} className={cls} onClick={onClick} target={target} rel={rel}>
+      <Link
+        href={href}
+        className={cls}
+        onClick={onClick}
+        target={target}
+        rel={rel}
+        aria-label={ariaLabel}
+      >
         {children}
       </Link>
     );
   }
 
   return (
-    <button type={type} className={cls} onClick={onClick} disabled={disabled}>
+    <button
+      type={type}
+      className={cls}
+      onClick={onClick}
+      disabled={disabled}
+      aria-label={ariaLabel}
+    >
       {children}
     </button>
   );

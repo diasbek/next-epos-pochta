@@ -1,10 +1,7 @@
 import type { Locale } from "@/i18n/config";
 import type { SiteCopy } from "@/data/types";
+import dynamic from "next/dynamic";
 import { PageContainer } from "@/components/atoms/PageContainer";
-import {
-  HomeQuoteForm,
-  HomeTrackForm,
-} from "@/components/molecules/HomeActionBarForms";
 import {
   homeActionBar,
   homeActionBridge,
@@ -13,6 +10,38 @@ import {
   homeActionLabel,
   homeActionPane,
 } from "@/styles/ui";
+
+const HomeTrackForm = dynamic(
+  () =>
+    import("@/components/molecules/HomeActionBarForms").then(
+      (m) => m.HomeTrackForm,
+    ),
+  {
+    ssr: true,
+    loading: () => (
+      <div
+        className="h-[var(--btn-height-sm)] min-h-[var(--btn-height-sm)] w-full animate-pulse rounded-[var(--control-radius)] bg-black/[0.04] motion-reduce:animate-none"
+        aria-hidden
+      />
+    ),
+  },
+);
+
+const HomeQuoteForm = dynamic(
+  () =>
+    import("@/components/molecules/HomeActionBarForms").then(
+      (m) => m.HomeQuoteForm,
+    ),
+  {
+    ssr: true,
+    loading: () => (
+      <div
+        className="h-[var(--btn-height-sm)] min-h-[var(--btn-height-sm)] w-full animate-pulse rounded-[var(--control-radius)] bg-black/[0.04] motion-reduce:animate-none"
+        aria-hidden
+      />
+    ),
+  },
+);
 
 /** Server-rendered island shell so LCP titles paint without waiting on client JS. */
 export function HomeActionBar({

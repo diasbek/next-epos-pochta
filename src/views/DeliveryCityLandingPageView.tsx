@@ -1,3 +1,4 @@
+import { Chip } from "@/components/atoms/Chip";
 import Link from "next/link";
 import type { Locale } from "@/i18n/config";
 import { getContent } from "@/i18n/get-content";
@@ -77,12 +78,12 @@ export function DeliveryCityLandingPageView({
           <nav className="mb-4 text-sm text-ink-muted" aria-label="Breadcrumb">
             <ol className="m-0 flex list-none flex-wrap items-center gap-1.5 p-0">
               <li>
-                <Link
+                <Chip
                   href={homePath}
                   className="underline-offset-2 hover:text-primary hover:underline"
                 >
                   {copy.calculator.breadcrumbHome}
-                </Link>
+                </Chip>
               </li>
               <li aria-hidden className="text-black/30">
                 /
@@ -105,7 +106,7 @@ export function DeliveryCityLandingPageView({
           </nav>
           <h1 className={pageIntroTitle}>{title}</h1>
           <p className={sectionLead}>{lead}</p>
-          <p className="m-0 mt-3 text-sm text-black/45">
+          <p className="m-0 mt-3 text-sm text-black/55">
             {locale === "uz" ? city.etaHintUz : city.etaHintRu}
           </p>
         </PageContainer>
@@ -168,9 +169,7 @@ export function DeliveryCityLandingPageView({
                     href={localePath(
                       locale,
                       routePath(r.from.code, r.to.code),
-                    )}
-                    className="inline-block rounded-full border border-black/15 bg-white px-4 py-2 text-sm font-medium text-black hover:border-primary hover:text-primary"
-                  >
+                    )}>
                     {name} → {cityDisplayName(r.to, locale)}
                   </Link>
                 </li>
@@ -186,15 +185,13 @@ export function DeliveryCityLandingPageView({
             <ul className="m-0 flex list-none flex-wrap gap-2 p-0">
               {inbound.map((r) => (
                 <li key={r.from.code}>
-                  <Link
+                  <Chip
                     href={localePath(
                       locale,
                       routePath(r.from.code, r.to.code),
-                    )}
-                    className="inline-block rounded-full border border-black/15 bg-white px-4 py-2 text-sm font-medium text-black hover:border-primary hover:text-primary"
-                  >
+                    )}>
                     {cityDisplayName(r.from, locale)} → {name}
-                  </Link>
+                  </Chip>
                 </li>
               ))}
             </ul>

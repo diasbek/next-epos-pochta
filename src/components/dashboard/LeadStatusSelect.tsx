@@ -2,7 +2,7 @@
 
 import { useLeadStatusLabels } from "@/components/dashboard/DashStatusBadge";
 import { useDashT } from "@/components/dashboard/DashLocaleProvider";
-import { dashSelect } from "@/styles/dashboard";
+import { dashSelectSm } from "@/styles/dashboard";
 import { toast } from "react-toastify";
 
 const STATUSES = ["draft", "new", "in_progress", "done", "spam"] as const;
@@ -45,7 +45,7 @@ export function LeadStatusSelect({
         name="status"
         defaultValue={status}
         onChange={(e) => e.currentTarget.form?.requestSubmit()}
-        className={`${dashSelect} max-w-[11rem] py-1.5 text-xs`}
+        className={`${dashSelectSm} max-w-[11rem]`}
       >
         {STATUSES.map((s) => (
           <option key={s} value={s}>

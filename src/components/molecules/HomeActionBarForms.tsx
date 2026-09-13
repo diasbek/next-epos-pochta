@@ -11,15 +11,9 @@ import {
   uzbekistanHubSettlements,
 } from "@/data/settlements";
 import { Button } from "@/components/atoms/Button";
+import { Input, Select } from "@/components/atoms/Input";
 import { trackEvent } from "@/lib/analytics/events";
-import {
-  homeActionButton,
-  homeActionControls,
-  homeActionField,
-  homeActionRow,
-  homeActionSwap,
-} from "@/styles/ui";
-import { cn } from "@/lib/cn";
+import { homeActionControls, homeActionRow } from "@/styles/ui";
 
 function SwapIcon() {
   return (
@@ -49,12 +43,6 @@ function SwapIcon() {
   );
 }
 
-const homeActionSelect = cn(
-  homeActionField,
-  "appearance-none bg-[length:1rem] bg-[right_0.75rem_center] bg-no-repeat pr-9",
-  "bg-[url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m6 9 6 6 6-6'/%3E%3C/svg%3E\")]",
-);
-
 export function HomeTrackForm({
   locale,
   copy,
@@ -80,21 +68,22 @@ export function HomeTrackForm({
       <label className="sr-only" htmlFor="home-action-track">
         {copy.home.trackPlaceholder}
       </label>
-      <input
+      <Input
         id="home-action-track"
         name="track_number"
+        size="sm"
         value={trackNumber}
         onChange={(e) => setTrackNumber(e.target.value)}
         placeholder={copy.home.trackPlaceholder}
-        className={homeActionField}
         autoComplete="off"
+        className="min-w-0 flex-1"
       />
       <Button
         type="submit"
         variant="secondary"
         size="sm"
+        shape="rounded"
         width="mobile"
-        className={homeActionButton}
       >
         {copy.ui.track}
       </Button>
@@ -135,12 +124,13 @@ export function HomeQuoteForm({
         <label className="sr-only" htmlFor="home-action-from">
           {copy.home.quoteFrom}
         </label>
-        <select
+        <Select
           id="home-action-from"
           name="from"
+          size="sm"
           value={from}
           onChange={(e) => setFrom(e.target.value)}
-          className={cn(homeActionSelect, "min-w-0 flex-1")}
+          className="min-w-0 flex-1"
         >
           <option value="">{copy.home.quoteFrom}</option>
           {hubs.map((s) => (
@@ -148,10 +138,13 @@ export function HomeQuoteForm({
               {settlementLabel(s, locale)}
             </option>
           ))}
-        </select>
-        <button
+        </Select>
+        <Button
           type="button"
-          className={homeActionSwap}
+          variant="outline"
+          size="sm"
+          shape="rounded"
+          iconOnly
           aria-label={copy.home.quoteSwap}
           onClick={() => {
             setFrom(to);
@@ -159,16 +152,17 @@ export function HomeQuoteForm({
           }}
         >
           <SwapIcon />
-        </button>
+        </Button>
         <label className="sr-only" htmlFor="home-action-to">
           {copy.home.quoteTo}
         </label>
-        <select
+        <Select
           id="home-action-to"
           name="to"
+          size="sm"
           value={to}
           onChange={(e) => setTo(e.target.value)}
-          className={cn(homeActionSelect, "min-w-0 flex-1")}
+          className="min-w-0 flex-1"
         >
           <option value="">{copy.home.quoteTo}</option>
           {hubs.map((s) => (
@@ -176,14 +170,14 @@ export function HomeQuoteForm({
               {settlementLabel(s, locale)}
             </option>
           ))}
-        </select>
+        </Select>
       </div>
       <Button
         type="submit"
         variant="primary"
         size="sm"
+        shape="rounded"
         width="mobile"
-        className={homeActionButton}
       >
         {copy.home.quoteCta}
       </Button>

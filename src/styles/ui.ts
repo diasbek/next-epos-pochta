@@ -32,7 +32,7 @@ export const homeHeroLead =
   "m-0 animate-hero-rise text-[0.95rem] leading-snug text-black/80 [animation-delay:80ms] sm:text-base lg:text-[clamp(1rem,1.8vw,1.25rem)] lg:text-black";
 
 export const homeHeroNote =
-  "m-0 animate-hero-rise text-sm text-black/55 [animation-delay:140ms]";
+  "m-0 animate-hero-rise text-sm text-black/60 [animation-delay:140ms]";
 
 /** Mobile: map under copy. Desktop: in-flow grid cell with map filling it. */
 export const homeHeroVisual =
@@ -63,18 +63,8 @@ export const homeActionLabel =
 export const homeActionRow =
   "flex min-w-0 flex-1 flex-row items-center gap-1.5 sm:gap-2.5";
 
-export const homeActionField =
-  "box-border h-[var(--home-action-control-h)] min-h-[var(--home-action-control-h)] min-w-0 w-full flex-1 rounded-[var(--home-action-control-radius)] border border-black/15 bg-white px-3 text-sm leading-none text-ink outline-none placeholder:text-black/40 focus:border-primary focus:ring-2 focus:ring-primary/15";
-
 export const homeActionControls =
   "flex min-w-0 w-full flex-1 flex-col gap-2 sm:gap-3 lg:flex-row lg:items-center lg:gap-2.5";
-
-/** Force Button height + radius to match island fields (not sitewide pill). */
-export const homeActionButton =
-  "!h-[var(--home-action-control-h)] !min-h-[var(--home-action-control-h)] !rounded-[var(--home-action-control-radius)] !px-4 !py-0 !text-sm";
-
-export const homeActionSwap =
-  "inline-flex size-[var(--home-action-control-h)] shrink-0 items-center justify-center rounded-[var(--home-action-control-radius)] border border-black/10 bg-surface-muted text-black/65 transition-colors hover:border-black/20 hover:bg-white hover:text-black";
 
 export const homeActionDivider =
   "h-px w-full shrink-0 bg-black/10 lg:mx-0 lg:h-auto lg:w-px lg:self-stretch";
@@ -109,9 +99,26 @@ export const heroActions =
 /**
  * Button atoms — sizes/tones read from CSS vars in `tokens.css`.
  * Change `--btn-height-*`, `--btn-px-*`, `--btn-text-*` to resize sitewide.
+ * Shape: default pill (`--btn-radius`); `btnShapeRounded` next to fields.
  */
 export const btnBase =
   "inline-flex shrink-0 cursor-pointer items-center justify-center rounded-[var(--btn-radius)] border border-transparent [font-weight:var(--btn-weight)] leading-none transition-[background,color,border-color,transform,box-shadow,opacity] duration-[var(--motion-fast)] hover:-translate-y-px active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60";
+
+/** Override pill when CTA sits beside Input (home island, toolbars). */
+export const btnShapePill = "rounded-[var(--btn-radius)]";
+export const btnShapeRounded = "!rounded-[var(--control-radius)]";
+
+/** Square hit-target matching button height (swap / icon chrome). */
+export const btnIconOnly =
+  "!aspect-square !w-[var(--btn-height-current,var(--btn-height-md))] !min-w-[var(--btn-height-current,var(--btn-height-md))] !px-0";
+export const btnIconOnlyXs =
+  "[--btn-height-current:var(--btn-height-xs)]";
+export const btnIconOnlySm =
+  "[--btn-height-current:var(--btn-height-sm)]";
+export const btnIconOnlyMd =
+  "[--btn-height-current:var(--btn-height-md)]";
+export const btnIconOnlyLg =
+  "[--btn-height-current:var(--btn-height-lg)]";
 
 /** Header / dense chrome. */
 export const btnSizeXs =
@@ -177,7 +184,7 @@ export const btnToneTelegram =
 export const headerControl =
   "inline-flex h-[var(--control-height)] min-h-[var(--control-height)] shrink-0 items-center justify-center gap-[var(--btn-gap-xs)] rounded-[var(--btn-radius)] px-[var(--btn-px-xs)] text-[length:var(--btn-text-xs)] font-medium leading-none transition-colors";
 
-export const headerControlQuiet = `${headerControl} text-black/55 hover:bg-black/[0.04] hover:text-black`;
+export const headerControlQuiet = `${headerControl} text-black/60 hover:bg-black/[0.04] hover:text-black`;
 
 export const headerControlOutline = `${headerControl} border border-black/10 bg-white text-black hover:border-black/20`;
 
@@ -262,19 +269,54 @@ export const quizOptionTitle =
 export const quizOptionDesc = "text-sm leading-snug text-ink-muted";
 export const quizChips = "flex flex-wrap gap-2";
 export const quizChip =
-  "inline-flex min-h-11 cursor-pointer items-center rounded-full border px-4 py-2 text-sm font-medium transition-colors";
+  "inline-flex min-h-[var(--btn-height-md)] cursor-pointer items-center rounded-[var(--btn-radius)] border px-[var(--btn-px-md)] py-0 text-[length:var(--btn-text-md)] font-medium transition-colors";
 export const quizChipIdle =
-  "border-black/15 bg-white text-ink hover:border-primary/40";
+  "border-[var(--control-border)] bg-white text-ink hover:border-primary/40";
 export const quizChipActive =
   "border-primary bg-primary text-white hover:border-primary";
+
+/** Link / filter chips (cities, routes, news) — same control language. */
+export const chipBase =
+  "inline-flex h-[var(--btn-height-sm)] min-h-[var(--btn-height-sm)] items-center justify-center rounded-[var(--btn-radius)] border px-[var(--btn-px-sm)] text-[length:var(--btn-text-sm)] font-medium leading-none transition-colors";
+export const chipIdle =
+  `${chipBase} border-[var(--control-border)] bg-white text-black hover:border-primary hover:text-primary`;
+export const chipActive =
+  `${chipBase} border-primary bg-primary text-white`;
 
 export const field = "mb-4 grid gap-1.5";
 export const fieldLabel = "text-[0.92rem] font-semibold text-ink";
 export const fieldHint = "text-[0.85rem] text-ink-muted";
 export const fieldError = "text-[0.85rem] text-danger";
-export const fieldControl =
-  "min-h-11 w-full rounded-xl border border-black/15 bg-white px-3.5 py-2.5 text-sm text-ink outline-none placeholder:text-black/40 focus:border-primary focus:ring-2 focus:ring-primary/15 disabled:cursor-not-allowed disabled:bg-surface-muted disabled:text-ink-muted sm:min-h-[var(--tap-min)] sm:px-4 sm:py-3.5 sm:text-base sm:placeholder:text-black/45";
-export const fieldTextarea = `${fieldControl} min-h-28 resize-y`;
+
+/**
+ * Shared Input / Select / Textarea shell.
+ * Sizes share --btn-height-* with Button so row pairs align.
+ */
+export const controlFieldBase =
+  "box-border w-full border bg-white text-ink outline-none placeholder:text-black/40 transition-[border-color,box-shadow] duration-[var(--motion-fast)] focus:border-[var(--control-border-focus)] focus:ring-2 focus:ring-[var(--control-ring)] disabled:cursor-not-allowed disabled:bg-surface-muted disabled:text-ink-muted";
+
+export const controlFieldSm =
+  `${controlFieldBase} h-[var(--btn-height-sm)] min-h-[var(--btn-height-sm)] rounded-[var(--control-radius)] border-[var(--control-border)] px-[var(--control-px-sm)] text-[length:var(--control-text-sm)] leading-none`;
+
+export const controlFieldMd =
+  `${controlFieldBase} h-[var(--btn-height-md)] min-h-[var(--btn-height-md)] rounded-[var(--control-radius)] border-[var(--control-border)] px-[var(--control-px-md)] text-[length:var(--control-text-md)] leading-none sm:px-4`;
+
+export const controlFieldInvalid =
+  "!border-danger focus:!border-danger focus:!ring-danger/20";
+
+export const controlTextarea =
+  `${controlFieldBase} min-h-28 resize-y rounded-[var(--control-radius)] border-[var(--control-border)] px-[var(--control-px-md)] py-2.5 text-[length:var(--control-text-md)] leading-snug sm:px-4 sm:py-3`;
+
+export const controlSelectSm = `${controlFieldSm} appearance-none bg-[length:1rem] bg-[right_0.75rem_center] bg-no-repeat pr-9 bg-[url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m6 9 6 6 6-6'/%3E%3C/svg%3E")]`;
+
+export const controlSelectMd = `${controlFieldMd} appearance-none bg-[length:1rem] bg-[right_0.75rem_center] bg-no-repeat pr-9 bg-[url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m6 9 6 6 6-6'/%3E%3C/svg%3E")]`;
+
+export const controlCheckbox =
+  "mt-0.5 size-4 shrink-0 rounded border-[var(--control-border)] accent-[var(--color-primary)]";
+
+/** @deprecated alias — use `controlFieldMd` / `<Input size="md" />`. */
+export const fieldControl = controlFieldMd;
+export const fieldTextarea = controlTextarea;
 export const fieldRow =
   "grid grid-cols-[repeat(auto-fit,minmax(min(100%,10rem),1fr))] gap-4";
 export const checkRow =

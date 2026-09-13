@@ -16,8 +16,8 @@ import {
   type NewsPageSize,
 } from "@/lib/news/repository";
 import { cn } from "@/lib/cn";
+import { Input, Select } from "@/components/atoms/Input";
 import {
-  fieldControl,
   quizChip,
   quizChipActive,
   quizChipIdle,
@@ -106,16 +106,17 @@ export function NewsListControls({
           <label className="sr-only" htmlFor="news-search">
             {copy.searchPlaceholder}
           </label>
-          <input
+          <Input
             id="news-search"
             name="q"
             type="text"
+            size="sm"
             inputMode="search"
             enterKeyHint="search"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder={copy.searchPlaceholder}
-            className={`${fieldControl} w-full !py-3`}
+            className="w-full"
             autoComplete="off"
           />
         </div>
@@ -124,13 +125,14 @@ export function NewsListControls({
           <div className="flex min-w-[10rem] flex-1 flex-col gap-1.5 sm:max-w-xs lg:flex-none">
             <label
               htmlFor="news-sort"
-              className="text-sm font-semibold uppercase tracking-wide text-black/40"
+              className="text-sm font-semibold uppercase tracking-wide text-black/55"
             >
               {copy.sortLabel}
             </label>
-            <select
+            <Select
               id="news-sort"
-              className={`${fieldControl} w-full !py-3`}
+              size="sm"
+              className="w-full"
               value={sort}
               onChange={(e) => {
                 startTransition(() => {
@@ -151,19 +153,20 @@ export function NewsListControls({
               <option value="oldest">{copy.sortOldest}</option>
               <option value="title-asc">{copy.sortTitleAsc}</option>
               <option value="title-desc">{copy.sortTitleDesc}</option>
-            </select>
+            </Select>
           </div>
 
           <div className="flex min-w-[8rem] flex-col gap-1.5 sm:w-36">
             <label
               htmlFor="news-page-size"
-              className="text-sm font-semibold uppercase tracking-wide text-black/40"
+              className="text-sm font-semibold uppercase tracking-wide text-black/55"
             >
               {copy.pageSizeLabel}
             </label>
-            <select
+            <Select
               id="news-page-size"
-              className={`${fieldControl} w-full !py-3`}
+              size="sm"
+              className="w-full"
               value={pageSize}
               onChange={(e) => {
                 const raw = e.target.value;
@@ -188,13 +191,13 @@ export function NewsListControls({
                   {pageSizeLabel(size)}
                 </option>
               ))}
-            </select>
+            </Select>
           </div>
         </div>
       </div>
 
       <div>
-        <p className="m-0 mb-3 text-sm font-semibold uppercase tracking-wide text-black/40">
+        <p className="m-0 mb-3 text-sm font-semibold uppercase tracking-wide text-black/55">
           {copy.categoriesTitle}
         </p>
         <div className={quizChips}>

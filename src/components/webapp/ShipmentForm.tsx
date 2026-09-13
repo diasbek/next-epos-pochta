@@ -8,7 +8,8 @@ import { getSettlementById, settlementLabel } from "@/data/settlements";
 import type { WebAppContactSession } from "@/lib/webapp/session";
 import type { ShipmentDraft } from "@/components/webapp/WebAppNav";
 import { useTelegram } from "@/components/webapp/TelegramProvider";
-import { fieldControl, fieldLabel, fieldTextarea } from "@/styles/ui";
+import { Input, Textarea } from "@/components/atoms/Input";
+import { fieldLabel } from "@/styles/ui";
 
 type ShipmentFormProps = {
   contact: WebAppContactSession;
@@ -150,10 +151,9 @@ export function ShipmentForm({
 
         <label className="grid gap-1.5">
           <span className={fieldLabel}>{copy.weightLabel}</span>
-          <input
+          <Input
             value={weight}
             onChange={(e) => setWeight(e.target.value)}
-            className={fieldControl}
             inputMode="decimal"
             placeholder="1.5"
           />
@@ -162,26 +162,23 @@ export function ShipmentForm({
         <fieldset className="m-0 grid gap-2 border-0 p-0">
           <legend className={fieldLabel}>{copy.dimsLabel}</legend>
           <div className="grid grid-cols-3 gap-2">
-            <input
+            <Input
               value={length}
               onChange={(e) => setLength(e.target.value)}
-              className={fieldControl}
               inputMode="numeric"
               placeholder={copy.lengthLabel}
               aria-label={copy.lengthLabel}
             />
-            <input
+            <Input
               value={width}
               onChange={(e) => setWidth(e.target.value)}
-              className={fieldControl}
               inputMode="numeric"
               placeholder={copy.widthLabel}
               aria-label={copy.widthLabel}
             />
-            <input
+            <Input
               value={height}
               onChange={(e) => setHeight(e.target.value)}
-              className={fieldControl}
               inputMode="numeric"
               placeholder={copy.heightLabel}
               aria-label={copy.heightLabel}
@@ -191,10 +188,9 @@ export function ShipmentForm({
 
         <label className="grid gap-1.5">
           <span className={fieldLabel}>{copy.commentLabel}</span>
-          <textarea
+          <Textarea
             value={comment}
             onChange={(e) => setComment(e.target.value)}
-            className={fieldTextarea}
             placeholder={copy.commentPlaceholder}
             rows={3}
           />

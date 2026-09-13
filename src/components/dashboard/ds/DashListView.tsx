@@ -20,8 +20,8 @@ import {
   dashBtnGhost,
   dashBtnSecondary,
   dashCard,
-  dashInput,
-  dashSelect,
+  dashInputSm,
+  dashSelectSm,
 } from "@/styles/dashboard";
 
 export type DashListSortDir = "asc" | "desc";
@@ -279,8 +279,8 @@ export function DashListView<T>({
   const fieldLabel =
     "text-[0.65rem] font-semibold uppercase tracking-wide text-black/40 leading-none";
   /** Shared control height so search / select / view toggle share one baseline. */
-  const fieldControl = cn(dashInput, "h-10 py-0 leading-10");
-  const selectControl = cn(dashSelect, "h-10 py-0 leading-10");
+  const fieldControl = dashInputSm;
+  const selectControl = dashSelectSm;
 
   return (
     <div className={cn("space-y-3", className)}>

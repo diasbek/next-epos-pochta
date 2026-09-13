@@ -106,7 +106,7 @@ export function Header({ locale, content }: HeaderProps) {
           >
             <Image
               src="/images/brand/logo.svg"
-              alt={SITE_CONFIG.name}
+              alt=""
               width={92}
               height={36}
               className="h-full w-auto"

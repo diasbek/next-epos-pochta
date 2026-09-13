@@ -65,12 +65,24 @@
   --btn-shadow-xs-hover: 0 3px 10px rgb(211 2 3 / 0.22);
   --btn-shadow-current: var(--btn-shadow);
   --btn-shadow-current-hover: var(--btn-shadow-hover);
+
+  /*
+   * Shared field / compact-control tokens (Input + Button shape=rounded).
+   * Heights align with --btn-height-sm|md so row pairs match.
+   */
+  --control-radius: var(--radius-md);
+  --control-border: rgb(0 0 0 / 0.15);
+  --control-border-focus: var(--color-primary);
+  --control-ring: rgb(211 2 3 / 0.15);
+  --control-px-sm: 0.75rem;
+  --control-px-md: 0.875rem;
+  --control-text-sm: var(--btn-text-sm);
+  --control-text-md: var(--btn-text-md);
   /* Shared header track / lang / icon targets */
   --control-height: var(--btn-height-xs);
-  /* Home track/quote island — one height for input, select, CTA */
-  --home-action-control-h: 2.5rem;
-  /* Match fields + CTAs in HomeActionBar (site buttons stay pill via --btn-radius). */
-  --home-action-control-radius: 0.75rem;
+  /* Back-compat aliases → use size="sm" + shape="rounded" */
+  --home-action-control-h: var(--btn-height-sm);
+  --home-action-control-radius: var(--control-radius);
 
   /*
    * Button variants — change these to restyle tones sitewide.
@@ -183,13 +195,12 @@
   --animate-hero-rise: hero-rise var(--motion-base) var(--ease-out) both;
 }
 
+/* Transform-only: opacity:0 + fill-mode:both delays LCP on hero titles. */
 @keyframes hero-rise {
   from {
-    opacity: 0;
     transform: translateY(14px);
   }
   to {
-    opacity: 1;
     transform: translateY(0);
   }
 }

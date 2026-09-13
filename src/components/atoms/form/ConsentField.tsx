@@ -8,7 +8,7 @@ import {
   getLegalBundle,
   type LegalConsentPart,
 } from "@/data/legal/documents";
-import { checkRow, fieldError } from "@/styles/ui";
+import { checkRow, controlCheckbox, fieldError } from "@/styles/ui";
 
 export function ConsentLabel({ locale }: { locale: Locale }) {
   const parts = getLegalBundle(locale).consentParts;
@@ -28,7 +28,7 @@ export function ConsentField({ locale }: { locale: Locale }) {
         <Field
           type="checkbox"
           name="consent"
-          className="mt-0.5 h-[1.15rem] w-[1.15rem] shrink-0 accent-[var(--color-primary)]"
+          className={controlCheckbox}
         />
         <ConsentLabel locale={locale} />
       </label>

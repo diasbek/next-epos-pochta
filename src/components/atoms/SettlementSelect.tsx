@@ -92,12 +92,12 @@ const defaultClassNames: ClassNamesConfig<
 > = {
   control: ({ isFocused }) =>
     cn(
-      "min-h-11 rounded-xl border bg-white px-1 text-sm text-ink shadow-none! sm:min-h-[var(--tap-min)] sm:text-base",
+      "h-[var(--btn-height-md)] min-h-[var(--btn-height-md)] rounded-[var(--control-radius)] border bg-white px-1 text-[length:var(--control-text-md)] text-ink shadow-none!",
       isFocused
-        ? "border-primary ring-2 ring-primary/15"
-        : "border-black/15",
+        ? "border-[var(--control-border-focus)] ring-2 ring-[var(--control-ring)]"
+        : "border-[var(--control-border)]",
     ),
-  valueContainer: () => "px-2.5 py-1.5 sm:py-2",
+  valueContainer: () => "px-2.5 py-0",
   placeholder: () => "text-black/40",
   singleValue: () => "text-ink",
   input: () => "text-ink",
@@ -105,7 +105,7 @@ const defaultClassNames: ClassNamesConfig<
   dropdownIndicator: () => "text-black/40 px-2",
   clearIndicator: () => "text-black/35 hover:text-black/60 px-1",
   menu: () =>
-    "mt-1 rounded-xl border border-black/12 bg-white shadow-[0_12px_32px_rgb(15_18_24/0.12)] overflow-hidden z-50",
+    "mt-1 rounded-[var(--control-radius)] border border-black/12 bg-white shadow-[0_12px_32px_rgb(15_18_24/0.12)] overflow-hidden z-50",
   menuList: () => "max-h-72 py-1",
   option: ({ isFocused, isSelected }) =>
     cn(
@@ -127,10 +127,10 @@ const compactClassNames: ClassNamesConfig<
   ...defaultClassNames,
   control: ({ isFocused }) =>
     cn(
-      "h-[var(--home-action-control-h)] min-h-[var(--home-action-control-h)] rounded-[var(--home-action-control-radius)] border bg-white px-0.5 text-sm leading-none text-ink shadow-none!",
+      "h-[var(--btn-height-sm)] min-h-[var(--btn-height-sm)] rounded-[var(--control-radius)] border bg-white px-0.5 text-[length:var(--control-text-sm)] leading-none text-ink shadow-none!",
       isFocused
-        ? "border-primary ring-2 ring-primary/15"
-        : "border-black/15",
+        ? "border-[var(--control-border-focus)] ring-2 ring-[var(--control-ring)]"
+        : "border-[var(--control-border)]",
     ),
   valueContainer: () => "gap-0.5 px-2.5 py-0",
   singleValue: () => "truncate text-ink leading-none",
@@ -219,8 +219,8 @@ export function SettlementSelect({
 
   const shellClass =
     variant === "compact"
-      ? "flex h-[var(--home-action-control-h)] min-h-[var(--home-action-control-h)] items-center rounded-[var(--home-action-control-radius)] border border-black/15 bg-white px-2.5 text-sm leading-none text-black/40"
-      : "flex min-h-11 items-center rounded-xl border border-black/15 bg-white px-3.5 text-sm text-black/40 sm:min-h-[var(--tap-min)] sm:px-4 sm:text-base";
+      ? "flex h-[var(--btn-height-sm)] min-h-[var(--btn-height-sm)] items-center rounded-[var(--control-radius)] border border-[var(--control-border)] bg-white px-2.5 text-[length:var(--control-text-sm)] leading-none text-black/40"
+      : "flex h-[var(--btn-height-md)] min-h-[var(--btn-height-md)] items-center rounded-[var(--control-radius)] border border-[var(--control-border)] bg-white px-[var(--control-px-md)] text-[length:var(--control-text-md)] text-black/40 sm:px-4";
 
   if (!mounted) {
     return (

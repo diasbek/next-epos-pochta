@@ -22,8 +22,9 @@ import {
   type MapRegionIso,
 } from "@/data/uzbekistan-map";
 import { Button } from "@/components/atoms/Button";
+import { Input } from "@/components/atoms/Input";
 import { UzbekistanMap } from "@/components/molecules/UzbekistanMap";
-import { fieldControl, homeSectionLead, homeSectionTitle } from "@/styles/ui";
+import { homeSectionLead, homeSectionTitle } from "@/styles/ui";
 
 export function GeoSection({
   locale,
@@ -172,7 +173,7 @@ export function GeoSection({
                 <label className="grid gap-2">
                   <span className="sr-only">{copy.home.geoSearchPlaceholder}</span>
                   <div className="flex flex-col gap-2.5 sm:flex-row sm:items-stretch">
-                    <input
+                    <Input
                       id="geo-search"
                       name="geo_search"
                       value={query}
@@ -202,7 +203,7 @@ export function GeoSection({
                         }
                       }}
                       placeholder={copy.home.geoSearchPlaceholder}
-                      className={`${fieldControl} min-w-0 flex-1`}
+                      className="min-w-0 flex-1"
                       autoComplete="off"
                       role="combobox"
                       aria-expanded={showMenu}

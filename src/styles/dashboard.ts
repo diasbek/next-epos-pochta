@@ -35,36 +35,43 @@ export const dashSectionTitle =
   "m-0 text-[0.95rem] font-semibold tracking-[-0.01em] text-ink";
 
 export const dashBtnPrimary =
-  "inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgb(211_2_3/0.22)] transition hover:bg-primary-hover disabled:cursor-not-allowed disabled:opacity-55";
+  "inline-flex h-[var(--btn-height-sm)] min-h-[var(--btn-height-sm)] items-center justify-center gap-2 rounded-[var(--control-radius)] bg-primary px-[var(--btn-px-sm)] text-[length:var(--btn-text-sm)] font-semibold text-white shadow-[0_4px_14px_rgb(211_2_3/0.22)] transition hover:bg-primary-hover disabled:cursor-not-allowed disabled:opacity-55";
 
 export const dashBtnSecondary =
-  "inline-flex items-center justify-center gap-2 rounded-xl border border-black/10 bg-white px-4 py-2.5 text-sm font-semibold text-ink transition hover:bg-black/[0.03] disabled:cursor-not-allowed disabled:opacity-55";
+  "inline-flex h-[var(--btn-height-sm)] min-h-[var(--btn-height-sm)] items-center justify-center gap-2 rounded-[var(--control-radius)] border border-[var(--control-border)] bg-white px-[var(--btn-px-sm)] text-[length:var(--btn-text-sm)] font-semibold text-ink transition hover:bg-black/[0.03] disabled:cursor-not-allowed disabled:opacity-55";
 
 export const dashBtnDanger =
-  "inline-flex items-center justify-center gap-2 rounded-xl bg-[#dc2626] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[#b91c1c] disabled:cursor-not-allowed disabled:opacity-55";
+  "inline-flex h-[var(--btn-height-sm)] min-h-[var(--btn-height-sm)] items-center justify-center gap-2 rounded-[var(--control-radius)] bg-[#dc2626] px-[var(--btn-px-sm)] text-[length:var(--btn-text-sm)] font-semibold text-white transition hover:bg-[#b91c1c] disabled:cursor-not-allowed disabled:opacity-55";
 
 export const dashBtnGhost =
-  "inline-flex items-center justify-center gap-2 rounded-xl px-3 py-2 text-sm font-semibold text-black/55 transition hover:bg-black/[0.04] hover:text-ink disabled:cursor-not-allowed disabled:opacity-55";
+  "inline-flex h-[var(--btn-height-sm)] min-h-[var(--btn-height-sm)] items-center justify-center gap-2 rounded-[var(--control-radius)] px-3 text-[length:var(--btn-text-sm)] font-semibold text-black/55 transition hover:bg-black/[0.04] hover:text-ink disabled:cursor-not-allowed disabled:opacity-55";
 
 /** Compact controls for table / list row actions. */
 export const dashBtnRowGhost =
-  "inline-flex items-center justify-center rounded-lg px-2 py-1 text-xs font-semibold text-black/55 transition hover:bg-black/[0.04] hover:text-ink disabled:cursor-not-allowed disabled:opacity-55";
+  "inline-flex h-[var(--btn-height-xs)] min-h-[var(--btn-height-xs)] items-center justify-center rounded-[var(--radius-sm)] px-2 text-[length:var(--btn-text-xs)] font-semibold text-black/55 transition hover:bg-black/[0.04] hover:text-ink disabled:cursor-not-allowed disabled:opacity-55";
 
 export const dashBtnRowSecondary =
-  "inline-flex items-center justify-center rounded-lg border border-black/10 bg-white px-2 py-1 text-xs font-semibold text-ink transition hover:bg-black/[0.03] disabled:cursor-not-allowed disabled:opacity-55";
+  "inline-flex h-[var(--btn-height-xs)] min-h-[var(--btn-height-xs)] items-center justify-center rounded-[var(--radius-sm)] border border-[var(--control-border)] bg-white px-2 text-[length:var(--btn-text-xs)] font-semibold text-ink transition hover:bg-black/[0.03] disabled:cursor-not-allowed disabled:opacity-55";
 
 export const dashBtnRowDanger =
-  "inline-flex items-center justify-center rounded-lg border border-[#fecaca] bg-white px-2 py-1 text-xs font-semibold text-[#b91c1c] transition hover:bg-[#fef2f2] disabled:cursor-not-allowed disabled:opacity-55";
+  "inline-flex h-[var(--btn-height-xs)] min-h-[var(--btn-height-xs)] items-center justify-center rounded-[var(--radius-sm)] border border-[#fecaca] bg-white px-2 text-[length:var(--btn-text-xs)] font-semibold text-[#b91c1c] transition hover:bg-[#fef2f2] disabled:cursor-not-allowed disabled:opacity-55";
 
 export const dashInput =
-  "w-full rounded-xl border border-black/10 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15 disabled:bg-black/[0.03]";
+  "box-border h-[var(--btn-height-sm)] min-h-[var(--btn-height-sm)] w-full rounded-[var(--control-radius)] border border-[var(--control-border)] bg-white px-[var(--control-px-sm)] text-[length:var(--control-text-sm)] leading-none outline-none transition focus:border-[var(--control-border-focus)] focus:ring-2 focus:ring-[var(--control-ring)] disabled:bg-black/[0.03]";
+
+/** Compact table / toolbar field. */
+export const dashInputSm =
+  "box-border h-[var(--btn-height-xs)] min-h-[var(--btn-height-xs)] w-full rounded-[var(--control-radius)] border border-[var(--control-border)] bg-white px-2.5 text-[length:var(--btn-text-xs)] leading-none outline-none transition focus:border-[var(--control-border-focus)] focus:ring-2 focus:ring-[var(--control-ring)] disabled:bg-black/[0.03]";
 
 /** Native select with a centered custom chevron (avoids OS caret misalignment). */
 export const dashSelect =
-  "dash-select w-full appearance-none rounded-xl border border-black/10 bg-white py-2.5 pl-3 pr-9 text-sm leading-normal outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15 disabled:bg-black/[0.03]";
+  "dash-select box-border h-[var(--btn-height-sm)] min-h-[var(--btn-height-sm)] w-full appearance-none rounded-[var(--control-radius)] border border-[var(--control-border)] bg-white py-0 pl-[var(--control-px-sm)] pr-9 text-[length:var(--control-text-sm)] leading-none outline-none transition focus:border-[var(--control-border-focus)] focus:ring-2 focus:ring-[var(--control-ring)] disabled:bg-black/[0.03]";
+
+export const dashSelectSm =
+  "dash-select box-border h-[var(--btn-height-xs)] min-h-[var(--btn-height-xs)] w-full appearance-none rounded-[var(--control-radius)] border border-[var(--control-border)] bg-white py-0 pl-2.5 pr-8 text-[length:var(--btn-text-xs)] leading-none outline-none transition focus:border-[var(--control-border-focus)] focus:ring-2 focus:ring-[var(--control-ring)] disabled:bg-black/[0.03]";
 
 export const dashInputError =
-  "w-full rounded-xl border border-primary/40 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15";
+  "box-border h-[var(--btn-height-sm)] min-h-[var(--btn-height-sm)] w-full rounded-[var(--control-radius)] border border-primary/40 bg-white px-[var(--control-px-sm)] text-[length:var(--control-text-sm)] leading-none outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15";
 
 export const dashLabel =
   "m-0 text-xs font-semibold uppercase tracking-wide text-black/40";

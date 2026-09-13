@@ -5,7 +5,8 @@ import type { Locale } from "@/i18n/config";
 import type { SiteCopy } from "@/data/types";
 import { uzbekistanSettlements } from "@/data/types";
 import { Button } from "@/components/atoms/Button";
-import { fieldControl, fieldHint } from "@/styles/ui";
+import { Input } from "@/components/atoms/Input";
+import { fieldHint } from "@/styles/ui";
 
 export function GeoSearch({
   locale,
@@ -38,14 +39,14 @@ export function GeoSearch({
             setSubmitted(query);
           }}
         >
-          <input
+          <Input
             id="geo-search-home"
             name="geo_search"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder={copy.home.geoSearchPlaceholder}
             aria-label={copy.home.geoSearchPlaceholder}
-            className={`${fieldControl} min-w-0 flex-1 placeholder:text-black/40`}
+            className="min-w-0 flex-1"
           />
           <Button type="submit" variant="secondary" width="mobile">
             {copy.ui.geoCheck}
@@ -75,13 +76,12 @@ export function GeoSearch({
         <span className="text-[0.92rem] font-semibold text-ink">
           {copy.home.geoSearchPlaceholder}
         </span>
-        <input
+        <Input
           id="geo-search"
           name="geo_search"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder={copy.home.geoSearchPlaceholder}
-          className={fieldControl}
         />
       </label>
       {!query.trim() || matches.length === 0 ? (

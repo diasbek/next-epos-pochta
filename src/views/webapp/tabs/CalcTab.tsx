@@ -9,7 +9,8 @@ import { fetchEstimate } from "@/lib/pricing/client";
 import { formatUzs, type QuoteEstimate } from "@/lib/pricing/estimate";
 import { useTelegram } from "@/components/webapp/TelegramProvider";
 import { useWebAppNav } from "@/components/webapp/WebAppNav";
-import { fieldControl, fieldLabel } from "@/styles/ui";
+import { Input } from "@/components/atoms/Input";
+import { fieldLabel } from "@/styles/ui";
 
 export function CalcTab() {
   const { locale, webApp } = useTelegram();
@@ -119,10 +120,9 @@ export function CalcTab() {
         </label>
         <label className="grid gap-1.5">
           <span className={fieldLabel}>{copy.weightLabel}</span>
-          <input
+          <Input
             value={weight}
             onChange={(e) => setWeight(e.target.value)}
-            className={fieldControl}
             inputMode="decimal"
             placeholder="1.5"
           />
@@ -130,24 +130,21 @@ export function CalcTab() {
         <fieldset className="m-0 grid gap-2 border-0 p-0">
           <legend className={fieldLabel}>{copy.dimsLabel}</legend>
           <div className="grid grid-cols-3 gap-2">
-            <input
+            <Input
               value={length}
               onChange={(e) => setLength(e.target.value)}
-              className={fieldControl}
               inputMode="numeric"
               placeholder={copy.lengthLabel}
             />
-            <input
+            <Input
               value={width}
               onChange={(e) => setWidth(e.target.value)}
-              className={fieldControl}
               inputMode="numeric"
               placeholder={copy.widthLabel}
             />
-            <input
+            <Input
               value={height}
               onChange={(e) => setHeight(e.target.value)}
-              className={fieldControl}
               inputMode="numeric"
               placeholder={copy.heightLabel}
             />

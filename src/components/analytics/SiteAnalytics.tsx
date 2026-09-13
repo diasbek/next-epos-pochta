@@ -27,10 +27,17 @@ function MetrikaRouteHits({ counterId }: { counterId: string }) {
   return null;
 }
 
-/** Analytics load by default (no cookie-banner gate). */
+/**
+ * Analytics after first paint — `lazyOnload` keeps Metrika/GA off the LCP path.
+ * Webvisor stays off by default (heavy main-thread + recording); enable in Metrika UI
+ * only when needed and set NEXT_PUBLIC_YM_WEBVISOR=1.
+ */
 export function SiteAnalytics() {
   const ga = SITE_CONFIG.analytics.googleAnalyticsId;
   const ym = SITE_CONFIG.analytics.yandexMetrikaId;
+  const webvisor =
+    process.env.NEXT_PUBLIC_YM_WEBVISOR === "1" ||
+    process.env.NEXT_PUBLIC_YM_WEBVISOR === "true";
 
   if (!ga && !ym) return null;
 
@@ -40,16 +47,16 @@ export function SiteAnalytics() {
         <>
           <Script
             src={`https://www.googletagmanager.com/gtag/js?id=${ga}`}
-            strategy="afterInteractive"
+            strategy="lazyOnload"
           />
-          <Script id="ga-init" strategy="afterInteractive">
+          <Script id="ga-init" strategy="lazyOnload">
             {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config','${ga}',{anonymize_ip:true});`}
           </Script>
         </>
       ) : null}
       {ym ? (
         <>
-          <Script id="ym-init" strategy="afterInteractive">{`
+          <Script id="ym-init" strategy="lazyOnload">{`
 (function(m,e,t,r,i,k,a){
   m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
   m[i].l=1*new Date();
@@ -58,10 +65,7 @@ export function SiteAnalytics() {
 })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=${ym}', 'ym');
 ym(${ym}, 'init', {
   ssr: true,
-  // Needs «Вебвизор» enabled in Metrika counter settings (Настройки → Вебвизор).
-  // App CSP is only frame-ancestors; if Hostinger adds script-src without unsafe-eval,
-  // recordings break — check browser console for CSP violations.
-  webvisor: true,
+  webvisor: ${webvisor ? "true" : "false"},
   clickmap: true,
   ecommerce: "dataLayer",
   accurateTrackBounce: true,
@@ -74,7 +78,7 @@ ym(${ym}, 'init', {
               <img
                 src={`https://mc.yandex.ru/watch/${ym}`}
                 style={{ position: "absolute", left: "-9999px" }}
-                alt="Yandex Metrika"
+                alt=""
               />
             </div>
           </noscript>

@@ -49,7 +49,7 @@ export function LanguageSwitcher({
         className={cn(
           compact
             ? headerControlOutline
-            : "inline-flex h-10 min-h-10 items-center justify-center gap-1.5 rounded-[var(--btn-radius)] border border-black/10 bg-white px-3 text-sm font-medium leading-none text-black transition-colors hover:border-black/20",
+            : headerControlOutline,
         )}
         aria-label="Language"
         aria-haspopup="listbox"

@@ -15,15 +15,16 @@ interface SiteFooterProps {
 const supportLinkClass =
   "inline-flex min-w-0 items-start gap-2 text-sm text-black hover:text-primary";
 
-function SupportIcon({ src, alt }: { src: string; alt: string }) {
+function SupportIcon({ src }: { src: string }) {
   return (
     <Image
       src={src}
-      alt={alt}
+      alt=""
       width={24}
       height={24}
       unoptimized
       className="mt-0.5 shrink-0"
+      aria-hidden
     />
   );
 }
@@ -84,10 +85,11 @@ export async function SiteFooter({ locale, content }: SiteFooterProps) {
                 >
                   <Image
                     src={social.src}
-                    alt={social.label}
+                    alt=""
                     fill
                     unoptimized
                     className="object-contain"
+                    aria-hidden
                   />
                 </a>
               ))}
@@ -117,10 +119,7 @@ export async function SiteFooter({ locale, content }: SiteFooterProps) {
             </p>
 
             <Link href={localePath(locale, "/faq/")} className={supportLinkClass}>
-              <SupportIcon
-                src="/images/brand/icon-faq.svg"
-                alt={content.footer.faqLink}
-              />
+              <SupportIcon src="/images/brand/icon-faq.svg" />
               <span className="min-w-0 break-words">{content.footer.faqLink}</span>
             </Link>
 
@@ -128,10 +127,7 @@ export async function SiteFooter({ locale, content }: SiteFooterProps) {
               href={localePath(locale, "/calculator/")}
               className={cn(supportLinkClass, "font-medium")}
             >
-              <SupportIcon
-                src="/images/brand/icon-calculator.svg"
-                alt={content.ui.calculator}
-              />
+              <SupportIcon src="/images/brand/icon-calculator.svg" />
               <span className="min-w-0 break-words">{content.ui.calculator}</span>
             </Link>
 
@@ -139,17 +135,14 @@ export async function SiteFooter({ locale, content }: SiteFooterProps) {
               href={localePath(locale, "/delivery/")}
               className={cn(supportLinkClass, "font-medium")}
             >
-              <SupportIcon
-                src="/images/brand/icon-cities.svg"
-                alt={content.footer.geography}
-              />
+              <SupportIcon src="/images/brand/icon-cities.svg" />
               <span className="min-w-0 break-words">
                 {content.footer.geography}
               </span>
             </Link>
 
             <a href={`mailto:${supportEmail}`} className={supportLinkClass}>
-              <SupportIcon src="/images/brand/icon-mail.svg" alt="Email" />
+              <SupportIcon src="/images/brand/icon-mail.svg" />
               <span className="min-w-0 break-all">{supportEmail}</span>
             </a>
 
@@ -159,7 +152,7 @@ export async function SiteFooter({ locale, content }: SiteFooterProps) {
               rel="noreferrer"
               className={supportLinkClass}
             >
-              <SupportIcon src="/images/brand/icon-telegram.svg" alt="Telegram" />
+              <SupportIcon src="/images/brand/icon-telegram.svg" />
               <span>Telegram</span>
             </a>
 
@@ -167,18 +160,12 @@ export async function SiteFooter({ locale, content }: SiteFooterProps) {
               href={`tel:${site.phone}`}
               className="inline-flex min-w-0 items-center gap-2 text-xl font-medium text-black hover:text-primary sm:text-2xl"
             >
-              <SupportIcon
-                src="/images/brand/icon-phone.svg"
-                alt={content.ui.call}
-              />
+              <SupportIcon src="/images/brand/icon-phone.svg" />
               <span className="min-w-0 break-all">{site.phoneDisplay}</span>
             </a>
 
             <p className={cn(supportLinkClass, "m-0 cursor-default hover:text-black")}>
-              <SupportIcon
-                src="/images/brand/icon-pin.svg"
-                alt={content.footer.contacts}
-              />
+              <SupportIcon src="/images/brand/icon-pin.svg" />
               <span className="min-w-0 break-words leading-5">{address}</span>
             </p>
 
@@ -188,7 +175,7 @@ export async function SiteFooter({ locale, content }: SiteFooterProps) {
                 "m-0 cursor-default text-black/60 hover:text-black/60",
               )}
             >
-              <SupportIcon src="/images/brand/icon-clock.svg" alt={hours} />
+              <SupportIcon src="/images/brand/icon-clock.svg" />
               <span className="min-w-0">{hours}</span>
             </p>
           </div>

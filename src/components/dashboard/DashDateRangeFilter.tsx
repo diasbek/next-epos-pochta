@@ -17,7 +17,7 @@ import {
   toIsoDate,
   type DashDateRange,
 } from "@/lib/dashboard/date-range";
-import { dashCard, dashInput } from "@/styles/dashboard";
+import { dashCard, dashInputSm } from "@/styles/dashboard";
 
 export type DashDateRangeFilterProps = {
   value: DashDateRange;
@@ -231,7 +231,7 @@ export function DashDateRangeFilter({
                   }),
                 )
               }
-              className={cn(dashInput, "h-10 py-0")}
+              className={dashInputSm}
             />
           </PanelField>
           <PanelField label={t.overview.to}>
@@ -247,7 +247,7 @@ export function DashDateRangeFilter({
                     : { ...value, to: nextTo },
                 );
               }}
-              className={cn(dashInput, "h-10 py-0")}
+              className={dashInputSm}
             />
           </PanelField>
         </div>

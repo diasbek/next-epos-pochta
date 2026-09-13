@@ -7,13 +7,13 @@ import { getContent } from "@/i18n/get-content";
 import { localePath } from "@/i18n/paths";
 import { SITE_CONFIG } from "@/utils/consts";
 import { Button } from "@/components/atoms/Button";
+import { Input } from "@/components/atoms/Input";
 import { PageContainer } from "@/components/atoms/PageContainer";
 import { trackEvent } from "@/lib/analytics/events";
 import { lookupTracking } from "@/lib/tracking/client";
 import type { TrackingShipment } from "@/lib/tracking/types";
 import {
   alertWarning,
-  fieldControl,
   fieldLabel,
   heroActions,
   pageIntro,
@@ -140,7 +140,7 @@ export function TrackingPageView({ locale }: { locale: Locale }) {
                 {copy.tracking.placeholder}
               </label>
               <div className={trackFormRow}>
-                <input
+                <Input
                   id="track-number"
                   name="track_number"
                   value={number}
@@ -152,7 +152,7 @@ export function TrackingPageView({ locale }: { locale: Locale }) {
                   placeholder={copy.tracking.placeholder}
                   autoComplete="off"
                   inputMode="text"
-                  className={`${fieldControl} w-full`}
+                  className="w-full"
                 />
                 <Button type="submit" disabled={pending} width="mobile">
                   {copy.ui.track}

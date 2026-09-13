@@ -1,3 +1,4 @@
+import { Chip } from "@/components/atoms/Chip";
 import Link from "next/link";
 import type { Locale } from "@/i18n/config";
 import { getContent } from "@/i18n/get-content";
@@ -61,13 +62,13 @@ export async function DeliveryIndexPageView({ locale }: { locale: Locale }) {
                 className="scroll-mt-[var(--header-height)]"
               >
                 <h2 className={sectionTitle}>
-                  <Link
+                  <Chip
                     href={landing}
                     className="mr-2 text-inherit underline-offset-2 hover:text-primary hover:underline"
                   >
                     {name}
-                  </Link>
-                  <span className="text-sm font-medium uppercase tracking-wide text-black/35">
+                  </Chip>
+                  <span className="text-sm font-medium uppercase tracking-wide text-black/55">
                     {city.code}
                   </span>
                 </h2>
@@ -91,9 +92,7 @@ export async function DeliveryIndexPageView({ locale }: { locale: Locale }) {
                         href={localePath(
                           locale,
                           routePath(r.from.code, r.to.code),
-                        )}
-                        className="inline-block rounded-full border border-black/15 bg-white px-4 py-2 text-sm font-medium text-black hover:border-primary hover:text-primary"
-                      >
+                        )}>
                         {name} → {cityDisplayName(r.to, locale)}
                       </Link>
                     </li>

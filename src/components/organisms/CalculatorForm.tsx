@@ -9,6 +9,7 @@ import {
 } from "@/data/settlements";
 import { ConsentLabel } from "@/components/atoms/form/ConsentField";
 import { Button } from "@/components/atoms/Button";
+import { Input } from "@/components/atoms/Input";
 import { RangeSlider } from "@/components/atoms/RangeSlider";
 import { SettlementSelect } from "@/components/atoms/SettlementSelect";
 import { trackEvent } from "@/lib/analytics/events";
@@ -27,7 +28,7 @@ import type { PublicPricingUiConfig } from "@/lib/pricing/types";
 import { cn } from "@/lib/cn";
 import {
   checkRow,
-  fieldControl,
+  controlCheckbox,
   fieldError,
   fieldLabel,
 } from "@/styles/ui";
@@ -391,7 +392,7 @@ export function CalculatorForm({
             onChange={setHeight}
           />
         </div>
-        <p className="m-0 text-xs leading-relaxed text-black/45">{c.limitsNote}</p>
+        <p className="m-0 text-xs leading-relaxed text-black/55">{c.limitsNote}</p>
       </div>
 
       <div className="flex flex-wrap items-center gap-3 border-t border-black/[0.06] bg-white p-4 sm:p-6 lg:px-7 lg:py-5">
@@ -403,13 +404,9 @@ export function CalculatorForm({
         >
           {c.calculateCta}
         </Button>
-        <button
-          type="button"
-          onClick={reset}
-          className="px-1 text-sm font-medium text-primary underline-offset-2 hover:underline"
-        >
+        <Button type="button" variant="ghost" size="sm" onClick={reset}>
           {c.resetCta}
-        </button>
+        </Button>
       </div>
 
       {estimateError ? (
@@ -431,7 +428,7 @@ export function CalculatorForm({
           </h2>
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
-              <p className="m-0 text-xs font-medium uppercase tracking-wide text-black/40">
+              <p className="m-0 text-xs font-medium uppercase tracking-wide text-black/55">
                 {c.resultRangeLabel}
               </p>
               <p className="m-0 mt-1 font-display text-xl font-semibold text-black sm:text-2xl">
@@ -439,7 +436,7 @@ export function CalculatorForm({
               </p>
             </div>
             <div>
-              <p className="m-0 text-xs font-medium uppercase tracking-wide text-black/40">
+              <p className="m-0 text-xs font-medium uppercase tracking-wide text-black/55">
                 {c.resultEtaLabel}
               </p>
               <p className="m-0 mt-1 text-lg font-medium text-black">{daysLabel}</p>
@@ -467,17 +464,18 @@ export function CalculatorForm({
                   <label htmlFor="calc-phone" className={fieldLabel}>
                     {fc.phone} *
                   </label>
-                  <input
+                  <Input
                     id="calc-phone"
                     name="phone"
                     type="tel"
+                    size="sm"
                     autoComplete="tel"
                     inputMode="tel"
                     placeholder="+998 XX XXX XX XX"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className={cn(fieldControl, "!min-h-10 !py-2 sm:!min-h-11")}
                     aria-invalid={Boolean(phoneError)}
+                    invalid={Boolean(phoneError)}
                   />
                   {phoneError ? (
                     <p className={cn(fieldError, "m-0")}>{phoneError}</p>
@@ -487,14 +485,14 @@ export function CalculatorForm({
                   <label htmlFor="calc-name" className={fieldLabel}>
                     {fc.name}
                   </label>
-                  <input
+                  <Input
                     id="calc-name"
                     name="name"
                     type="text"
+                    size="sm"
                     autoComplete="name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className={cn(fieldControl, "!min-h-10 !py-2 sm:!min-h-11")}
                   />
                 </div>
               </div>
@@ -504,7 +502,7 @@ export function CalculatorForm({
                   type="checkbox"
                   checked={consent}
                   onChange={(e) => setConsent(e.target.checked)}
-                  className="mt-0.5 size-4 shrink-0 accent-[var(--color-primary)]"
+                  className={controlCheckbox}
                 />
                 <ConsentLabel locale={locale} />
               </label>

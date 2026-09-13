@@ -47,7 +47,7 @@ export async function ContactsPageView({ locale }: { locale: Locale }) {
             <h2 className={homeSectionTitle}>{copy.contacts.channelsTitle}</h2>
             <div className="mt-6 flex flex-col gap-5">
               <div>
-                <p className="m-0 text-sm font-semibold uppercase tracking-wide text-black/40">
+                <p className="m-0 text-sm font-semibold uppercase tracking-wide text-black/55">
                   {copy.ui.call}
                 </p>
                 <a
@@ -59,7 +59,7 @@ export async function ContactsPageView({ locale }: { locale: Locale }) {
               </div>
 
               <div>
-                <p className="m-0 text-sm font-semibold uppercase tracking-wide text-black/40">
+                <p className="m-0 text-sm font-semibold uppercase tracking-wide text-black/55">
                   Telegram
                 </p>
                 <a
@@ -74,7 +74,7 @@ export async function ContactsPageView({ locale }: { locale: Locale }) {
 
               {email ? (
                 <div>
-                  <p className="m-0 text-sm font-semibold uppercase tracking-wide text-black/40">
+                  <p className="m-0 text-sm font-semibold uppercase tracking-wide text-black/55">
                     Email
                   </p>
                   <a
@@ -88,7 +88,7 @@ export async function ContactsPageView({ locale }: { locale: Locale }) {
 
               {hours ? (
                 <div>
-                  <p className="m-0 text-sm font-semibold uppercase tracking-wide text-black/40">
+                  <p className="m-0 text-sm font-semibold uppercase tracking-wide text-black/55">
                     {locale === "uz" ? "Ish vaqti" : "Режим работы"}
                   </p>
                   <p className="mt-1 m-0 text-lg text-black/70">{hours}</p>
@@ -96,13 +96,13 @@ export async function ContactsPageView({ locale }: { locale: Locale }) {
               ) : null}
 
               <div>
-                <p className="m-0 text-sm font-semibold uppercase tracking-wide text-black/40">
+                <p className="m-0 text-sm font-semibold uppercase tracking-wide text-black/55">
                   {copy.contacts.addressTitle}
                 </p>
                 <p className="mt-1 m-0 text-base leading-relaxed text-black/70">
                   {locale === "uz" ? site.address.lineUz : line}
                 </p>
-                <p className="mt-2 m-0 text-sm text-black/50">
+                <p className="mt-2 m-0 text-sm text-black/55">
                   {copy.contacts.mapNote}
                 </p>
                 <Button

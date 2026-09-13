@@ -5,6 +5,7 @@ import type { Locale } from "@/i18n/config";
 import { getContent } from "@/i18n/get-content";
 import { localePath } from "@/i18n/paths";
 import { Button } from "@/components/atoms/Button";
+import { MediaMinWidth } from "@/components/atoms/MediaMinWidth";
 import { PageContainer } from "@/components/atoms/PageContainer";
 import { BusinessLogisticsScene } from "@/components/molecules/BusinessLogisticsScene";
 import { DeliveryChain } from "@/components/molecules/DeliveryChain";
@@ -44,10 +45,10 @@ const GeoSection = dynamic(
 );
 
 const NEED_IMAGES: Record<string, string> = {
-  documents: "/images/home/needs/documents.png",
-  parcel: "/images/home/needs/parcels.png",
-  goods: "/images/home/needs/goods.png",
-  regular: "/images/home/needs/regular.png",
+  documents: "/images/home/needs/documents.webp",
+  parcel: "/images/home/needs/parcels.webp",
+  goods: "/images/home/needs/goods.webp",
+  regular: "/images/home/needs/regular.webp",
 };
 
 const BUSINESS_ICONS = [
@@ -119,15 +120,18 @@ export async function HomePageView({ locale }: { locale: Locale }) {
             <p className={homeHeroNote}>{copy.home.heroNote}</p>
           </div>
 
-          <div className={homeHeroVisual}>
-            <Image
-              src="/images/hero/uzbekistan-map.svg"
-              alt=""
-              width={1000}
-              height={652}
-              className={homeHeroMap}
-              unoptimized
-            />
+          <div className={homeHeroVisual} aria-hidden>
+            <MediaMinWidth minWidthPx={1024}>
+              <Image
+                src="/images/hero/uzbekistan-map.svg"
+                alt=""
+                width={1000}
+                height={652}
+                className={homeHeroMap}
+                unoptimized
+                loading="lazy"
+              />
+            </MediaMinWidth>
           </div>
         </PageContainer>
       </section>
@@ -213,7 +217,10 @@ export async function HomePageView({ locale }: { locale: Locale }) {
                 className="flex w-full flex-col items-center gap-3 sm:gap-4 md:gap-6 lg:w-auto lg:min-w-0 lg:flex-1 lg:flex-row lg:gap-0"
               >
                 <article className="flex aspect-square w-full max-w-[min(100%,14rem)] flex-col items-center justify-center gap-2 overflow-hidden rounded-full border border-black/20 bg-white px-5 py-4 text-center sm:max-w-[min(100%,16rem)] sm:gap-3 sm:px-7 sm:py-5 md:max-w-[min(100%,18.125rem)] md:gap-4 md:px-8 md:py-6 lg:mx-auto">
-                  <p className="m-0 font-display text-4xl font-semibold uppercase text-black/30 sm:text-5xl md:text-6xl">
+                  <p
+                    aria-hidden
+                    className="m-0 font-display text-4xl font-semibold uppercase text-black/45 sm:text-5xl md:text-6xl"
+                  >
                     {index + 1}
                   </p>
                   <h3 className="m-0 text-base font-medium text-black sm:text-xl md:text-2xl">

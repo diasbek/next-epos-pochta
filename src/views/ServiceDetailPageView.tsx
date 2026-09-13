@@ -1,3 +1,4 @@
+import { Chip } from "@/components/atoms/Chip";
 import Image from "next/image";
 import Link from "next/link";
 import type { Locale } from "@/i18n/config";
@@ -109,12 +110,12 @@ export function ServiceDetailPageView({
           <nav className="mb-4 text-sm text-ink-muted" aria-label="Breadcrumb">
             <ol className="m-0 flex list-none flex-wrap items-center gap-1.5 p-0">
               <li>
-                <Link
+                <Chip
                   href={homePath}
                   className="underline-offset-2 hover:text-primary hover:underline"
                 >
                   {copy.calculator.breadcrumbHome}
-                </Link>
+                </Chip>
               </li>
               <li aria-hidden className="text-black/30">
                 /
@@ -238,9 +239,7 @@ export function ServiceDetailPageView({
               {related.map((item) => (
                 <li key={item.id}>
                   <Link
-                    href={localePath(locale, `/services/${item.id}/`)}
-                    className="inline-block rounded-full border border-black/15 bg-white px-4 py-2 text-sm font-medium text-black hover:border-primary hover:text-primary"
-                  >
+                    href={localePath(locale, `/services/${item.id}/`)}>
                     {item.title}
                   </Link>
                 </li>

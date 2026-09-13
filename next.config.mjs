@@ -162,6 +162,10 @@ const nextConfig = {
         headers: [...securityHeaders, publicFramingHeader, longCache],
       },
       {
+        source: "/_next/static/:path*",
+        headers: [longCache],
+      },
+      {
         source: "/favicon.svg",
         headers: [...securityHeaders, publicFramingHeader, longCache],
       },
